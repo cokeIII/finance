@@ -44,4 +44,9 @@
     <link rel="stylesheet" href="css/select.dataTables.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
-<?php session_start(); ?>
+<?php 
+    session_start(); 
+    if(empty($_SESSION['people_id'])){
+        header("location: index.php");
+    }
+?>

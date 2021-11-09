@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php require_once "setHead.php"; ?>
-<?php require_once "connect.php"; ?>
+<?php require_once "connect.php";
+if (empty($_SESSION['people_id'])) {
+    header("location: index.php");
+} ?>
 
 <body id="page-top">
     <!-- Navigation-->

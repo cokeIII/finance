@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php require_once "setHead.php"; ?>
+<?php require_once "setHead.php";
+if (empty($_SESSION['people_id'])) {
+    header("location: index.php");
+} ?>
 <style>
-   
+
 </style>
 
 <body id="page-top">
@@ -14,7 +17,7 @@
             <div class="container">
                 <div class="card">
                     <div class="card-body">
-                        
+
                     </div>
                 </div>
             </div>

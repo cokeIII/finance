@@ -2,6 +2,7 @@
 <html lang="en">
 <?php require_once "setHead.php"; ?>
 <?php require_once "connect.php"; ?>
+
 <body id="page-top">
     <!-- Navigation-->
     <?php require_once "menu.php"; ?>
@@ -18,7 +19,7 @@
                                     <select class="form-control" id="room">
                                         <option value="">-- เลือกห้องเรียน --</option>
                                         <?php
-                                        $sqlRoom = "select * from student_group group by student_group_short_name";
+                                        $sqlRoom = "select * from student_group where level_name = 'ปวช.' group by student_group_short_name";
                                         $resRoom  = mysqli_query($conn, $sqlRoom);
                                         while ($rowRoom = mysqli_fetch_array($resRoom)) {
                                         ?>
@@ -28,13 +29,13 @@
                                         ?>
                                     </select>
                                 </div>
-                                <div class="col-md-4">
+                                <!-- <div class="col-md-4">
                                     <div class="row justify-content-end">
                                         <div class="col-md-12">
                                             <a href="form_stutus_std.php"><button class="btn btn-info mt-5" id="stdStatus"><i class="fas fa-user-edit"></i>พิมพ์ทั้งห้องที่เลือก</button></a>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
 
                             <table class="table" id="enrollTable" width="1200">
@@ -82,6 +83,32 @@
         $("#room").change(function() {
             loadTable($(this).val())
         })
+        $(document).on('click', '.btnPrint', function() {
+            $.redirect("doc.php", {
+                id: $(this).attr("enrollId"),
+            }, "GET", "_blank");
+        })
+        $(document).on('change', '.status', function() {
+            let std_id = $(this).attr("std_id")
+            let val = $(this).val()
+            $.ajax({
+                type: "POST",
+                url: "updateDoc.php",
+                data: {
+                    student_id: std_id,
+                    update: val,
+                },
+                success: function(result) {
+                    console.log(result)
+                    if (result == "ok") {
+                        loadTable($("#room").val())
+                    } else if (result == "fail") {
+                        alert("แก้ไขไม่สำเร็จ")
+                    }
+                }
+            });
+        })
+
         function loadTable(room_name) {
             $('#enrollTable').DataTable({
                 "paging": true,
@@ -143,6 +170,6 @@
                     }
                 }
             });
-        }F
+        }
     })
 </script>

@@ -4,14 +4,18 @@ require_once "connect.php";
 if (!empty($_POST["room_name"])) {
     $room_name = $_POST["room_name"];
     $sql = "select e.*,d.status as dStatus,d.time_stamp as dTimeStamp from enroll e
+    left join student_group sg on e.group_id = sg.student_group_id
     left join  documents d on d.student_id = e.student_id 
     where 
     e.group_id = '$room_name'  and 
+    sg.level_name = 'ปวช.'  and 
     e.status = 'พิมพ์แล้ว' order by e.student_id";
 } else {
     $sql = "select e.*,d.status as dStatus,d.time_stamp as dTimeStamp from enroll e 
+    left join student_group sg on e.group_id = sg.student_group_id
     left join  documents d on d.student_id = e.student_id
-    where e.status = 'พิมพ์แล้ว'
+    where e.status = 'พิมพ์แล้ว' and
+    sg.level_name = 'ปวช.'
     order by e.student_id
     ";
 }
@@ -38,8 +42,9 @@ while ($row = mysqli_fetch_assoc($res)) {
     $techlist["data"][$i]["select_status"] = ' <select enrollId="' . $row["id"] . '" std_id="' . $row["student_id"] . '" name="status" id="status" class="form-control status">
     <option value=""' . ($row["dStatus"] == "" ? "selected" : "") . '></option>
     <option value="พิมพ์แล้ว"' . ($row["dStatus"] == "พิมพ์แล้ว" ? "selected" : "") . '>พิมพ์แล้ว</option>
-    <option value="เอกสารไม่ถูกต้องสมบูรณ์"' . ($row["dStatus"] == "เอกสารไม่ถูกต้องสมบูรณ์" ? "selected" : "") . '>เอกสารไม่ถูกต้องสมบูรณ์</option>
     <option value="ส่งเอกสารแล้ว"' . ($row["dStatus"] == "ส่งเอกสารแล้ว" ? "selected" : "") . '>ส่งเอกสารแล้ว</option>
+    <option value="รับเงินแล้ว"' . ($row["dStatus"] == "รับเงินแล้ว" ? "selected" : "") . '>รับเงินแล้ว</option>
+    <option value="เอกสารไม่ถูกต้องสมบูรณ์"' . ($row["dStatus"] == "เอกสารไม่ถูกต้องสมบูรณ์" ? "selected" : "") . '>เอกสารไม่ถูกต้องสมบูรณ์</option>
     <option value="ยกเลิก"' . ($row["dStatus"] == "ยกเลิก" ? "selected" : "") . '>ยกเลิก</option>
 </select>';
     $techlist["data"][$i]["btn_print"] = '<button enrollId="' . $row["id"] . '" class="btn btn-info btnPrint"><i class="fas fa-print"></i> พิมพ์</button>';

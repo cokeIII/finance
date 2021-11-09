@@ -7,9 +7,6 @@
     <title>CTC Finance</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Our project just needs Font Awesome solid + brand -->
-    <script defer src="node_modules/@fortawesome/fontawesome-free/js/brands.js"></script>
-    <script defer src="node_modules/@fortawesome/fontawesome-free/js/solid.js"></script>
-    <script defer src="node_modules/@fortawesome/fontawesome-free/js/fontawesome.js"></script>
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Google fonts-->
@@ -41,7 +38,6 @@
 	<script src="https://cdn.jsdelivr.net/gh/cowboy/jquery-throttle-debounce/jquery.ba-throttle-debounce.js" defer></script>
 	<!-- sanitize.css -->
 	<link href="https://unpkg.com/sanitize.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/image-zoom.css" />
     <link rel="stylesheet" href="vendor/datatables/dataTables.bootstrap4.css">
     <!-- <link rel="stylesheet" href="node_modules/cropperjs/src/css/cropper.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.css" integrity="sha512-+VDbDxc9zesADd49pfvz7CgsOl2xREI/7gnzcdyA9XjuTxLXrdpuz21VVIqc5HPfZji2CypSbxx1lgD7BgBK5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />

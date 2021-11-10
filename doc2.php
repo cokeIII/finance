@@ -47,6 +47,7 @@ function DateThai($strDate)
 ob_start(); // Start get HTML code
 $group_id = $_GET["group_id"];
 $sql = "select * from student s
+inner join prefix p on s.perfix_id = p.prefix_id
 left join student_group sg on s.group_id = sg.student_group_id
 where sg.student_group_id = '$group_id'
 and s.status = 0
@@ -114,6 +115,14 @@ $level = explode(".", $row["grade_name"]);
         .text-22 {
             font-size: 22px;
         }
+
+        .coll-box {
+            border-collapse: collapse;
+        }
+
+        .border-box {
+            border: 1px solid black;
+        }
     </style>
 </head>
 
@@ -155,38 +164,63 @@ $level = explode(".", $row["grade_name"]);
             <td colspan="2">สังกัดสำนักงานคณะกรรมการการอาชีวศึกษา และขอรับรองว่าข้าพเจ้าจะนำเงินที่ได้รับไปดำเนินการตาม</td>
         </tr>
     </table>
-    <table width="100%" class="border-table">
+    <table width="100%" class="border-table text-center">
         <tr>
             <td>ที่</td>
-        </tr>
-        <tr>
             <td>รหัสประจำตัว<div>นักเรียน</div>
             </td>
-        </tr>
-        <tr>
             <td>ชื่อ - สกุล นักเรียน</td>
-        </tr>
-        <tr>
             <td>
                 <div>หมายเลขบัตร</div>
                 <div>ประจำตัวประชาชน</div>
                 <div>นักเรียน</div>
             </td>
-        </tr>
-        <tr>
             <td>จำนวนเงิน</td>
-        </tr>
-        <tr>
             <td>วันที่รับเงิน</td>
-        </tr>
-        <tr>
-            <td>ลายมือชื่อ</td>
-            <td>ผู้รับเงิน</td>
+            <td>ลายมือชื่อ<div>ผู้รับเงิน</div>
+            </td>
         </tr>
         <?php
-            $res2 = mysqli_q 
-            while()
+        $i = 0;
+        $resNum = mysqli_query($conn, $sql);
+        $numRow = mysqli_num_rows($resNum);
+
+        $res2 = mysqli_query($conn, $sql);
+        $money = 900;
+        while ($row2 = mysqli_fetch_array($res2)) {
+            if ($i <= 10) {
         ?>
+                <tr>
+                    <td><?php echo ++$i; ?></td>
+                    <td><?php echo $row2["student_id"]; ?></td>
+                    <td class="text-left"><?php echo $row2["prefix_name"] . $row2["stu_fname"] . " " . $row2["stu_lname"]; ?></td>
+                    <td><?php echo $row2["people_id"] ?></td>
+                    <td><?php echo $money . ".-" ?></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+        <?php
+            }
+        }
+        ?>
+        <tr>
+            <td class="text-right" colspan="4">รวมเงินทั้งสิ้น</td>
+            <td class="border-box"></td>
+        </tr>
+    </table>
+    <table width="100%">
+        <tr>
+            <td width="50%" class="text-center">
+                <div>ลงชื่อ...............................................................(ผู้จ่ายเงิน)</div>
+                <div>(...........................................................)</div>
+                <div>(เจ้าหน้าที่งานการเงิน)</div>
+            </td>
+            <td width="50%" class="text-center">
+                <div>ลงชื่อ.......................................................</div>
+                <div>(นางกรรณิการ์  บำรุงญาติ)</div>
+                <div>(หัวหน้างานการเงิน)</div>
+            </td>
+        </tr>
     </table>
 </body>
 

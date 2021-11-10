@@ -298,12 +298,12 @@ $row = mysqli_fetch_array($res);
     <div class="center text-size">หลักฐานการรับค่าเครื่องแบบนักเรียนระดับชั้น <?php echo $row["grade_name"]; ?> ปีการศึกษา 2564</div>
     <div class="text-size">1.สำเนาบัตรประชาชนของนักเรียน/นักศึกษา หมายเลขโทรศัพท์ <?php echo $row["phone"]; ?></div>
     <div class="text-size txt-right">ชั้น/ช่าง <?php echo $row["student_group_short_name"]; ?> รหัส <?php echo $row["student_id"]; ?></div>
-    <div class="center"><img src="uploads/<?php echo $row["id_card_pic_std"]; ?>" alt="" height="135" width="275"></div>
+    <div class="center"><img src="../refund/uploads/<?php echo $row["id_card_pic_std"]; ?>" alt="" height="135" width="275"></div>
     <div class="text-size center">สำเนาถูกต้อง</div>
     <div class="text-size width-sig">ลงชื่อ</div>
     <div class="text-size center">(<?php echo $row["prefix_name"] . $row["stu_fname"] . " " . $row["stu_lname"]; ?>)</div>
     <div class="text-size">2.สำเนาบัตรประชาชน<?php echo $row["recipient"]; ?></div>
-    <div class="center"><img src="uploads/<?php echo $row["id_card_pic"]; ?>" alt="" height="135" width="275"></div>
+    <div class="center"><img src="../refund/uploads/<?php echo $row["id_card_pic"]; ?>" alt="" height="135" width="275"></div>
     <div class="text-size center">สำเนาถูกต้อง</div>
     <div class="text-size width-sig">ลงชื่อ </div>
     <div class="text-size center">(<?php echo trim($row["recipient_prefix"]) . $row["recipient_fname"] . " " . $row["recipient_lname"]; ?>)</div>

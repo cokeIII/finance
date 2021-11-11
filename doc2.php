@@ -181,7 +181,7 @@ $level = explode(".", $row["grade_name"]);
             </td>
         </tr>
         <?php
-        $i = 0;
+        $i = 1;
         $resNum = mysqli_query($conn, $sql);
         $numRow = mysqli_num_rows($resNum);
 
@@ -191,7 +191,7 @@ $level = explode(".", $row["grade_name"]);
             if ($i <= 10) {
         ?>
                 <tr>
-                    <td><?php echo ++$i; ?></td>
+                    <td><?php echo $i++; ?></td>
                     <td><?php echo $row2["student_id"]; ?></td>
                     <td class="text-left"><?php echo $row2["prefix_name"] . $row2["stu_fname"] . " " . $row2["stu_lname"]; ?></td>
                     <td><?php echo $row2["people_id"] ?></td>
@@ -211,14 +211,30 @@ $level = explode(".", $row["grade_name"]);
     <table width="100%">
         <tr>
             <td width="50%" class="text-center">
+                <br>
                 <div>ลงชื่อ...............................................................(ผู้จ่ายเงิน)</div>
                 <div>(...........................................................)</div>
                 <div>(เจ้าหน้าที่งานการเงิน)</div>
             </td>
             <td width="50%" class="text-center">
+                <br>
                 <div>ลงชื่อ.......................................................</div>
-                <div>(นางกรรณิการ์  บำรุงญาติ)</div>
+                <div>(นางกรรณิการ์ บำรุงญาติ)</div>
                 <div>(หัวหน้างานการเงิน)</div>
+            </td>
+        </tr>
+        <tr>
+            <td width="50%" class="text-center">
+                <br>
+                <div>ลงชื่อ................................................................</div>
+                <div>(นายอำนวย เหิมขุนทด)</div>
+                <div>(รองผู้อำนวยการ ฝ่ายบริหารทรัพยากร)</div>
+            </td>
+            <td width="50%" class="text-center">
+                <br>
+                <div>ลงชื่อ................................................................</div>
+                <div>(............................................................)</div>
+                <div>ผู้อำนวยการวิทยาลัยเทคนิคชลบุรี</div>
             </td>
         </tr>
     </table>

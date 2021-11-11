@@ -300,11 +300,13 @@ $row = mysqli_fetch_array($res);
     <div class="text-size txt-right">ชั้น/ช่าง <?php echo $row["student_group_short_name"]; ?> รหัส <?php echo $row["student_id"]; ?></div>
     <div class="center"><img src="../refund/uploads/<?php echo $row["id_card_pic_std"]; ?>" alt="" height="150" width="290"></div>
     <div class="text-size center">สำเนาถูกต้อง</div>
+    <br>
     <div class="text-size width-sig">ลงชื่อ</div>
     <div class="text-size center">(<?php echo $row["prefix_name"] . $row["stu_fname"] . " " . $row["stu_lname"]; ?>)</div>
     <div class="text-size">2.สำเนาบัตรประชาชน<?php echo $row["recipient"]; ?></div>
     <div class="center"><img src="../refund/uploads/<?php echo $row["id_card_pic"]; ?>" alt="" height="150" width="290"></div>
     <div class="text-size center">สำเนาถูกต้อง</div>
+    <br>
     <div class="text-size width-sig">ลงชื่อ </div>
     <div class="text-size center">(<?php echo trim($row["recipient_prefix"]) . $row["recipient_fname"] . " " . $row["recipient_lname"]; ?>)</div>
     <pagebreak></pagebreak>
@@ -312,7 +314,7 @@ $row = mysqli_fetch_array($res);
         <tr>
             <td class="text-right" colspan="2">
                 <div>ลำดับที่.....................................................</div>
-                <div>กรณีที่ได้รับสิทธิ์ (ค่าเครื่องแบบนักเรียน)</div>
+                <div>กรณีที่ได้รับสิทธิ์ (ค่าอุปกรณ์การเรียน)</div>
             </td>
         </tr>
         <tr>
@@ -542,12 +544,12 @@ $row = mysqli_fetch_array($res);
     <table width="100%" class="text-22">
         <tr>
             <td colspan="2">
-                <div>รวมทั้งสิ้น (ตัวอักษร)...............................................-สองร้อยสามสิลบาทถ้วน-................................................</div>
+                <div>รวมทั้งสิ้น (ตัวอักษร)...............................................-สองร้อยสามสิบบาทถ้วน-................................................</div>
             </td>
         </tr>
         <tr>
             <td class="text-left" width="70%">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ข้าพเจ้า ..........<?php echo $row["recipient_prefix"] . $row["recipient_fname"] . "  " . $row["recipient_lname"]; ?>..........
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ข้าพเจ้า ..........<?php echo $row["prefix_name"] . $row["stu_fname"] . "  " . $row["stu_lname"]; ?>..........
             </td>
             <td class="text-right">
                 ตำแหน่ง...........นักเรียน............
@@ -568,16 +570,18 @@ $row = mysqli_fetch_array($res);
     </table>
     <pagebreak></pagebreak>
     <h2 class="center">วิทยาลัยเทคนิคชลบุรี</h2>
-    <div class="center text-size">หลักฐานการรับค่าเครื่องแบบนักเรียนระดับชั้น <?php echo $row["grade_name"]; ?> ปีการศึกษา 2564</div>
+    <div class="center text-size">หลักฐานการรับค่าอุปกรณ์การเรียนของนักเรียนระดับชั้น <?php echo $row["grade_name"]; ?> ภาคเรียนที่ 1 ปีการศึกษา 2564</div>
     <div class="text-size">1.สำเนาบัตรประชาชนของนักเรียน/นักศึกษา หมายเลขโทรศัพท์ <?php echo $row["phone"]; ?></div>
     <div class="text-size txt-right">ชั้น/ช่าง <?php echo $row["student_group_short_name"]; ?> รหัส <?php echo $row["student_id"]; ?></div>
-    <div class="center"><img src="../refund/uploads/<?php echo $row["id_card_pic_std"]; ?>" alt="" height="135" width="275"></div>
+    <div class="center"><img src="../refund/uploads/<?php echo $row["id_card_pic_std"]; ?>" alt="" height="150" width="290"></div>
     <div class="text-size center">สำเนาถูกต้อง</div>
+    <br>
     <div class="text-size width-sig">ลงชื่อ</div>
     <div class="text-size center">(<?php echo $row["prefix_name"] . $row["stu_fname"] . " " . $row["stu_lname"]; ?>)</div>
     <div class="text-size">2.สำเนาบัตรประชาชน<?php echo $row["recipient"]; ?></div>
-    <div class="center"><img src="../refund/uploads/<?php echo $row["id_card_pic"]; ?>" alt="" height="135" width="275"></div>
+    <div class="center"><img src="../refund/uploads/<?php echo $row["id_card_pic"]; ?>" alt="" height="150" width="290"></div>
     <div class="text-size center">สำเนาถูกต้อง</div>
+    <br>
     <div class="text-size width-sig">ลงชื่อ </div>
     <div class="text-size center">(<?php echo trim($row["recipient_prefix"]) . $row["recipient_fname"] . " " . $row["recipient_lname"]; ?>)</div>
     <pagebreak></pagebreak>
@@ -585,7 +589,7 @@ $row = mysqli_fetch_array($res);
         <tr>
             <td class="text-right" colspan="2">
                 <div>ลำดับที่.....................................................</div>
-                <div>กรณีที่ได้รับสิทธิ์ (ค่าเครื่องแบบนักเรียน)</div>
+                <div>กรณีที่ได้รับสิทธิ์ (ค่าเครื่องค่าอุปกรณ์การเรียน)</div>
             </td>
         </tr>
         <tr>
@@ -671,7 +675,7 @@ $row = mysqli_fetch_array($res);
             <td width="50%" class="text-center">
                 <div>&nbsp;</div>
                 <div>ลงชื่อ..........................................ผู้จ่ายเงิน</div>
-                <div>(นางสาวราตรี เมืองศรี)</div>
+                <div>(นางสาวราตรี ศรีเมือง)</div>
                 <div>เจ้าหน้าที่การเงิน</div>
                 <div>วันที่..........................................................</div>
             </td>
@@ -815,12 +819,12 @@ $row = mysqli_fetch_array($res);
     <table width="100%" class="text-22">
         <tr>
             <td colspan="2">
-                <div>รวมทั้งสิ้น (ตัวอักษร)...............................................-สองร้อยสามสิลบาทถ้วน-................................................</div>
+                <div>รวมทั้งสิ้น (ตัวอักษร)...............................................-สองร้อยสามสิบบาทถ้วน-................................................</div>
             </td>
         </tr>
         <tr>
             <td class="text-left" width="70%">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ข้าพเจ้า ..........<?php echo $row["recipient_prefix"] . $row["recipient_fname"] . "  " . $row["recipient_lname"]; ?>..........
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ข้าพเจ้า ..........<?php echo $row["prefix_name"] . $row["stu_fname"] . "  " . $row["stu_lname"]; ?>..........
             </td>
             <td class="text-right">
                 ตำแหน่ง...........นักเรียน............
@@ -841,16 +845,18 @@ $row = mysqli_fetch_array($res);
     </table>
     <pagebreak></pagebreak>
     <h2 class="center">วิทยาลัยเทคนิคชลบุรี</h2>
-    <div class="center text-size">หลักฐานการรับค่าเครื่องแบบนักเรียนระดับชั้น <?php echo $row["grade_name"]; ?> ปีการศึกษา 2564</div>
+    <div class="center text-size">หลักฐานการรับค่าอุปกรณ์การเรียนของนักเรียนระดับชั้น <?php echo $row["grade_name"]; ?> ภาคเรียนที่ 2 ปีการศึกษา 2564</div>
     <div class="text-size">1.สำเนาบัตรประชาชนของนักเรียน/นักศึกษา หมายเลขโทรศัพท์ <?php echo $row["phone"]; ?></div>
     <div class="text-size txt-right">ชั้น/ช่าง <?php echo $row["student_group_short_name"]; ?> รหัส <?php echo $row["student_id"]; ?></div>
-    <div class="center"><img src="../refund/uploads/<?php echo $row["id_card_pic_std"]; ?>" alt="" height="135" width="275"></div>
+    <div class="center"><img src="../refund/uploads/<?php echo $row["id_card_pic_std"]; ?>" alt="" height="150" width="290"></div>
     <div class="text-size center">สำเนาถูกต้อง</div>
+    <br>
     <div class="text-size width-sig">ลงชื่อ</div>
     <div class="text-size center">(<?php echo $row["prefix_name"] . $row["stu_fname"] . " " . $row["stu_lname"]; ?>)</div>
     <div class="text-size">2.สำเนาบัตรประชาชน<?php echo $row["recipient"]; ?></div>
-    <div class="center"><img src="../refund/uploads/<?php echo $row["id_card_pic"]; ?>" alt="" height="135" width="275"></div>
+    <div class="center"><img src="../refund/uploads/<?php echo $row["id_card_pic"]; ?>" alt="" height="150" width="290"></div>
     <div class="text-size center">สำเนาถูกต้อง</div>
+    <br>
     <div class="text-size width-sig">ลงชื่อ </div>
     <div class="text-size center">(<?php echo trim($row["recipient_prefix"]) . $row["recipient_fname"] . " " . $row["recipient_lname"]; ?>)</div>
 </body>

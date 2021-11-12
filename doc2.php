@@ -131,7 +131,7 @@ $level = explode(".", $row["grade_name"]);
     $resNum = mysqli_query($conn, $sql);
     $numRow = mysqli_num_rows($resNum);
     $i = 1;
-    for ($j = 0; $j <= $numRow; $j += 10) {
+    for ($j = 0; $j < $numRow; $j += 10) {
         $sql2 = "select * from student s
             inner join prefix p on s.perfix_id = p.prefix_id
             left join student_group sg on s.group_id = sg.student_group_id

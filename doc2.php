@@ -191,25 +191,23 @@ $level = explode(".", $row["grade_name"]);
                 </td>
             </tr>
             <?php
-           
-
 
             $res2 = mysqli_query($conn, $sql2);
             $money = 900;
             while ($row2 = mysqli_fetch_array($res2)) {
-                if ($i <= 10) {
+
             ?>
-                    <tr>
-                        <td><?php echo $i++; ?></td>
-                        <td><?php echo $row2["student_id"]; ?></td>
-                        <td class="text-left"><?php echo $row2["prefix_name"] . $row2["stu_fname"] . " " . $row2["stu_lname"]; ?></td>
-                        <td><?php echo $row2["people_id"] ?></td>
-                        <td><?php echo $money . ".-" ?></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                <tr>
+                    <td><?php echo $i++; ?></td>
+                    <td><?php echo $row2["student_id"]; ?></td>
+                    <td class="text-left"><?php echo $row2["prefix_name"] . $row2["stu_fname"] . " " . $row2["stu_lname"]; ?></td>
+                    <td><?php echo $row2["people_id"] ?></td>
+                    <td><?php echo $money . ".-" ?></td>
+                    <td></td>
+                    <td></td>
+                </tr>
             <?php
-                }
+
             }
             ?>
             <tr>

@@ -130,6 +130,7 @@ $level = explode(".", $row["grade_name"]);
     <?php
     $resNum = mysqli_query($conn, $sql);
     $numRow = mysqli_num_rows($resNum);
+    $i = 1;
     for ($j = 0; $j <= $numRow; $j += 10) {
         $sql2 = "select * from student s
             inner join prefix p on s.perfix_id = p.prefix_id
@@ -190,7 +191,7 @@ $level = explode(".", $row["grade_name"]);
                 </td>
             </tr>
             <?php
-            $i = 1;
+           
 
 
             $res2 = mysqli_query($conn, $sql2);

@@ -128,6 +128,8 @@ $level = explode(".", $row["grade_name"]);
 
 <body>
     <?php
+    $mode = $_GET["mode"];
+    $term = $_GET["term"];
     $resNum = mysqli_query($conn, $sql);
     $numRow = mysqli_num_rows($resNum);
     $i = 1;
@@ -148,8 +150,8 @@ $level = explode(".", $row["grade_name"]);
                 <td width="50%">
                     <table>
                         <tr>
-                            <td class="text-center" width="50%"><input type="checkbox" checked="true"> ค่าเครื่องแบบนักเรียน</td>
-                            <td class="text-center" width="50%"><input type="checkbox"> ค่าอุปกรณ์การเรียน</td>
+                            <td class="text-center" width="50%"><input type="checkbox" <?php echo ($mode == 1 ? 'checked="true"' : ""); ?>> ค่าเครื่องแบบนักเรียน</td>
+                            <td class="text-center" width="50%"><input type="checkbox" <?php echo ($mode == 2 ? 'checked="true"' : ""); ?>> ค่าอุปกรณ์การเรียน</td>
                         </tr>
                         <tr>
                             <td class="text-center">(900.-บาท)</td>
@@ -158,7 +160,7 @@ $level = explode(".", $row["grade_name"]);
                     </table>
                 </td>
                 <td class="text-center">
-                    ภาคเรียนที่ 1 ปีการศึกษา 2564
+                    ภาคเรียนที่ <?php echo $term; ?> ปีการศึกษา 2564
                 </td>
             </tr>
             <tr>
@@ -193,7 +195,7 @@ $level = explode(".", $row["grade_name"]);
             <?php
 
             $res2 = mysqli_query($conn, $sql2);
-            $money = 900;
+            ($mode == 1 ? $money = 900 : $money = 230);
             while ($row2 = mysqli_fetch_array($res2)) {
 
             ?>

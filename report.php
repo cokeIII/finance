@@ -21,6 +21,24 @@ if (empty($_SESSION['people_id'])) {
                         <h3>พิมพ์ใบสรุปรายห้อง</h3>
                         <div class="row">
                             <div class="col-md-5">
+                                <input type="radio" name="mode" value="1" checked> : ค่าเครื่องแบบนักเรียน
+                            </div>
+                            <div>
+                                <input type="radio" name="mode" value="2"> : ค่าอุปกรณ์การเรียน
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <input type="radio" name="term" value="1" checked> : ภาคเรียนที่ 1
+                            </div>
+                            <div>
+                                <input type="radio" name="term" value="2"> : ภาคเรียนที่ 2
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-5">
                                 <select class="form-control" id="room">
                                     <option value="">-- เลือกห้องเรียน --</option>
                                     <?php
@@ -52,6 +70,8 @@ if (empty($_SESSION['people_id'])) {
         $(document).on('click', '.printReport', function() {
             $.redirect("doc2.php", {
                 group_id: $("#room").val(),
+                mode: $("input[name=mode]:checked").val(),
+                term: $("input[name=term]:checked").val(),
             }, "GET", "_blank");
         })
     })

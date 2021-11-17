@@ -74,7 +74,7 @@ $row = mysqli_fetch_array($res);
     <style>
         body {
             font-family: "thsarabun";
-            font-size: 24px;
+            font-size: 21px;
         }
 
         .border-table {
@@ -104,7 +104,7 @@ $row = mysqli_fetch_array($res);
         }
 
         .img-center {
-            margin-left: 328px;
+            margin-left: 295px;
         }
 
         .text-justify {
@@ -181,6 +181,17 @@ $row = mysqli_fetch_array($res);
             width: 75px;
             height: 30px;
         }
+
+        .dott {
+            text-decoration: none;
+            border-bottom: 2px dotted black !important;
+        }
+
+        u {
+            text-decoration: none;
+            border-bottom: 2px dotted black !important;
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -201,42 +212,80 @@ $row = mysqli_fetch_array($res);
             </td>
         </tr>
         <tr>
-            <td width="65%">
+            <td width="60%">
                 <img class="img-center" src="img/doc-logo.gif" alt="" width="80" height="80">
             </td>
             <td class="text-right">
                 <div>ชื่อสถานศึกษา วิทยาลัยเทคนิคชลบุรี</div>
-                <div>วัน............เดือน............................พ.ศ.................</div>
+                <div>วัน............เดือน........................พ.ศ.................</div>
             </td>
         </tr>
+    </table>
+    <!-- pull data -->
+    <table width="100%">
         <tr>
-            <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ข้าพเจ้า <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["recipient_prefix"] . $row["recipient_fname"] . "  " . $row["recipient_lname"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td>
-        </tr>
-        <tr>
-            <td colspan="2">อยู่บ้านเลขที่ <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["home_id"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> หมู่ที่ <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["moo"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> ถนน <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["street"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> ตำบล <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["tumbol_name"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td>
-        </tr>
-        <tr>
-            <td colspan="2">อำเภอ/เขต <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["amphure_name"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> จังหวัด <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["province_name"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> รหัสไปรษณีย์ <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["post"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td>
-        </tr>
-        <tr>
-            <td colspan="2">เป็นผู้ปกครองนักเรียนชื่อ <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["prefix_name"] . $row["stu_fname"] . "  " . $row["stu_lname"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td>
-        </tr>
-        <tr>
-            <td colspan="2">หมายเลขประจำตัวประชาชนของนักเรียน <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["people_id"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                ระดับชั้น <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["grade_name"] . "/" . ltrim($row["student_group_no"], '0'); ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
-                ช่าง <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["major_name"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
-                รหัสประจำตัวนักเรียน <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["student_id"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+            <td width="40%" class="text-right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ข้าพเจ้า (ผู้ปกครอง) (นาย/นาง/นางสาว)</td>
+            <td class="dott">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["recipient_prefix"] . $row["recipient_fname"] . "  " . $row["recipient_lname"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
         </tr>
+    </table>
+    <table width="100%">
         <tr>
-            <td colspan="2">
-                ภาคเรียนที่ <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
-                ปีการศึกษา <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2564&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+            <td>อยู่บ้านเลขที่</td>
+            <td class="dott"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["home_id"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>หมู่ที่ </td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["moo"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+            <td>ถนน </td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["street"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+            <td>ตำบล </td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["tumbol_name"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+    </table>
+    <table width="100%">
+        <tr>
+            <td width="12%">อำเภอ/เขต</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["amphure_name"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td width="8%">จังหวัด</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["province_name"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td width="12%">รหัสไปรษณีย์</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["post"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+    </table>
+    <table width="100%">
+        <tr>
+            <td width="50%">เป็นผู้ปกครองของนักเรียนชื่อ (นาย/นาง/นางสาว/ด.ช./ด.ญ.)</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["prefix_name"] . $row["stu_fname"] . "  " . $row["stu_lname"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+    </table>
+    <table width="100%">
+        <tr>
+            <td width="43%">หมายเลขประจำตัวประชาชนของนักเรียน(13 หลัก)</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["people_id"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
         </tr>
+    </table>
+    <table width="100%">
+        <tr>
+            <td width="9%">ระดับชั้น</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["grade_name"] . "/" . ltrim($row["student_group_no"], '0'); ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td width="5%">ช่าง</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["major_name"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td width="19%">รหัสประจำตัวนักเรียน</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["student_id"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+    </table>
+    <table width="100%">
+        <tr>
+            <td width="10%">ภาคเรียนที่</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td width="11%">ปีการศึกษา</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2564&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+    </table>
+    <!-- pull data -->
+
+    <table width="100%">
         <tr>
             <td colspan="2">
                 <div>ขอรับสิทธิ์ค่าเครื่องแบบนักเรียนและค่าอุปกรณ์การเรียนตามโครงการสนับสนุนค่าใช้จ่ายในการจัดการศึกษา</div>ตั้งแต่ระดับอนุบาลจนจบการศึกษาขั้นพื้นฐาน ดังนี้
@@ -326,42 +375,78 @@ $row = mysqli_fetch_array($res);
             </td>
         </tr>
         <tr>
-            <td width="65%">
+            <td width="60%">
                 <img class="img-center" src="img/doc-logo.gif" alt="" width="80" height="80">
             </td>
             <td class="text-right">
                 <div>ชื่อสถานศึกษา วิทยาลัยเทคนิคชลบุรี</div>
-                <div>วัน............เดือน............................พ.ศ.................</div>
+                <div>วัน............เดือน........................พ.ศ.................</div>
             </td>
         </tr>
+    </table>
+    <!-- pull data -->
+    <table width="100%">
         <tr>
-            <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ข้าพเจ้า <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["recipient_prefix"] . $row["recipient_fname"] . "  " . $row["recipient_lname"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td>
-        </tr>
-        <tr>
-            <td colspan="2">อยู่บ้านเลขที่ <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["home_id"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> หมู่ที่ <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["moo"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> ถนน <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["street"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> ตำบล <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["tumbol_name"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td>
-        </tr>
-        <tr>
-            <td colspan="2">อำเภอ/เขต <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["amphure_name"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> จังหวัด <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["province_name"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> รหัสไปรษณีย์ <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["post"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td>
-        </tr>
-        <tr>
-            <td colspan="2">เป็นผู้ปกครองนักเรียนชื่อ <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["prefix_name"] . $row["stu_fname"] . "  " . $row["stu_lname"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td>
-        </tr>
-        <tr>
-            <td colspan="2">หมายเลขประจำตัวประชาชนของนักเรียน <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["people_id"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                ระดับชั้น <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["grade_name"] . "/" . ltrim($row["student_group_no"], '0'); ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
-                ช่าง <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["major_name"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
-                รหัสประจำตัวนักเรียน <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["student_id"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+            <td width="40%" class="text-right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ข้าพเจ้า (ผู้ปกครอง) (นาย/นาง/นางสาว)</td>
+            <td class="dott">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["recipient_prefix"] . $row["recipient_fname"] . "  " . $row["recipient_lname"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
         </tr>
+    </table>
+    <table width="100%">
         <tr>
-            <td colspan="2">
-                ภาคเรียนที่ <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
-                ปีการศึกษา <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2564&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+            <td>อยู่บ้านเลขที่</td>
+            <td class="dott"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["home_id"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>หมู่ที่ </td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["moo"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+            <td>ถนน </td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["street"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+            <td>ตำบล </td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["tumbol_name"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+    </table>
+    <table width="100%">
+        <tr>
+            <td width="12%">อำเภอ/เขต</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["amphure_name"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td width="8%">จังหวัด</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["province_name"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td width="12%">รหัสไปรษณีย์</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["post"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+    </table>
+    <table width="100%">
+        <tr>
+            <td width="50%">เป็นผู้ปกครองของนักเรียนชื่อ (นาย/นาง/นางสาว/ด.ช./ด.ญ.)</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["prefix_name"] . $row["stu_fname"] . "  " . $row["stu_lname"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+    </table>
+    <table width="100%">
+        <tr>
+            <td width="43%">หมายเลขประจำตัวประชาชนของนักเรียน(13 หลัก)</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["people_id"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
         </tr>
+    </table>
+    <table width="100%">
+        <tr>
+            <td width="9%">ระดับชั้น</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["grade_name"] . "/" . ltrim($row["student_group_no"], '0'); ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td width="5%">ช่าง</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["major_name"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td width="19%">รหัสประจำตัวนักเรียน</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["student_id"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+    </table>
+    <table width="100%">
+        <tr>
+            <td width="10%">ภาคเรียนที่</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td width="11%">ปีการศึกษา</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2564&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+    </table>
+    <table width="100%">
         <tr>
             <td colspan="2">
                 <div>ขอรับสิทธิ์ค่าเครื่องแบบนักเรียนและค่าอุปกรณ์การเรียนตามโครงการสนับสนุนค่าใช้จ่ายในการจัดการศึกษา</div>ตั้งแต่ระดับอนุบาลจนจบการศึกษาขั้นพื้นฐาน ดังนี้
@@ -543,29 +628,34 @@ $row = mysqli_fetch_array($res);
     <br>
     <table width="100%" class="text-22">
         <tr>
-            <td colspan="2">
-                <div>รวมทั้งสิ้น (ตัวอักษร)...............................................-สองร้อยสามสิบบาทถ้วน-................................................</div>
+            <td colspan="4">
+                <div>รวมทั้งสิ้น (ตัวอักษร)...............................................-สองร้อยสามสิบบาทถ้วน-................................................................</div>
             </td>
         </tr>
         <tr>
-            <td class="text-left" width="70%">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ข้าพเจ้า ..........<?php echo $row["prefix_name"] . $row["stu_fname"] . "  " . $row["stu_lname"]; ?>..........
+            <td class="text-left" width="14%">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ข้าพเจ้า
             </td>
-            <td class="text-right">
-                ตำแหน่ง...........นักเรียน............
+            <td class="dott">
+                <?php echo $row["prefix_name"] . $row["stu_fname"] . "  " . $row["stu_lname"]; ?>
+            </td>
+            </td>
+            <td width="10%">ตำแหน่ง</td>
+            <td class="dott">
+                นักเรียน
             </td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td colspan="4">
                 <div>สังกัดวิทยาลัยเทคนิคชลบุรี กองวิทยาลัยเทคนิคชลบุรี กรมอาชีวศึกษา กระทรวงศึกษาธิการ ขอรับรองว่า</div>
                 <div>รายจ่ายข้างต้น ไม่อาจเรียกใบเสร็จรับเงินจากผู้รับเงินได้ และข้าพเจ้าได้จ่ายเงินไปในงานของราชการโดยแท้</div>
             </td>
         </tr>
         <tr>
-            <td class="text-right" colspan="2"><br>ลงชื่อ..............................................นักเรียน</td>
+            <td class="text-right" colspan="4"><br>ลงชื่อ.................................................นักเรียน</td>
         </tr>
         <tr>
-            <td class="text-right" colspan="2"><br>ลงชื่อ..............................................ผู้ปกคอง</td>
+            <td class="text-right" colspan="4"><br>ลงชื่อ..............................................ผู้ปกครอง</td>
         </tr>
     </table>
     <pagebreak></pagebreak>
@@ -601,42 +691,78 @@ $row = mysqli_fetch_array($res);
             </td>
         </tr>
         <tr>
-            <td width="65%">
+            <td width="60%">
                 <img class="img-center" src="img/doc-logo.gif" alt="" width="80" height="80">
             </td>
             <td class="text-right">
                 <div>ชื่อสถานศึกษา วิทยาลัยเทคนิคชลบุรี</div>
-                <div>วัน............เดือน............................พ.ศ.................</div>
+                <div>วัน............เดือน........................พ.ศ.................</div>
             </td>
         </tr>
+    </table>
+    <!-- pull data -->
+    <table width="100%">
         <tr>
-            <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ข้าพเจ้า <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["recipient_prefix"] . $row["recipient_fname"] . "  " . $row["recipient_lname"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td>
-        </tr>
-        <tr>
-            <td colspan="2">อยู่บ้านเลขที่ <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["home_id"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> หมู่ที่ <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["moo"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> ถนน <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["street"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> ตำบล <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["tumbol_name"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td>
-        </tr>
-        <tr>
-            <td colspan="2">อำเภอ/เขต <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["amphure_name"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> จังหวัด <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["province_name"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> รหัสไปรษณีย์ <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["post"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td>
-        </tr>
-        <tr>
-            <td colspan="2">เป็นผู้ปกครองนักเรียนชื่อ <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["prefix_name"] . $row["stu_fname"] . "  " . $row["stu_lname"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td>
-        </tr>
-        <tr>
-            <td colspan="2">หมายเลขประจำตัวประชาชนของนักเรียน <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["people_id"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                ระดับชั้น <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["grade_name"] . "/" . ltrim($row["student_group_no"], '0'); ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
-                ช่าง <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["major_name"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
-                รหัสประจำตัวนักเรียน <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["student_id"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+            <td width="40%" class="text-right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ข้าพเจ้า (ผู้ปกครอง) (นาย/นาง/นางสาว)</td>
+            <td class="dott">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["recipient_prefix"] . $row["recipient_fname"] . "  " . $row["recipient_lname"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
         </tr>
+    </table>
+    <table width="100%">
         <tr>
-            <td colspan="2">
-                ภาคเรียนที่ <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
-                ปีการศึกษา <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2564&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+            <td>อยู่บ้านเลขที่</td>
+            <td class="dott"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["home_id"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>หมู่ที่ </td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["moo"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+            <td>ถนน </td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["street"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+            <td>ตำบล </td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["tumbol_name"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+    </table>
+    <table width="100%">
+        <tr>
+            <td width="12%">อำเภอ/เขต</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["amphure_name"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td width="8%">จังหวัด</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["province_name"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td width="12%">รหัสไปรษณีย์</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["post"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+    </table>
+    <table width="100%">
+        <tr>
+            <td width="50%">เป็นผู้ปกครองของนักเรียนชื่อ (นาย/นาง/นางสาว/ด.ช./ด.ญ.)</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["prefix_name"] . $row["stu_fname"] . "  " . $row["stu_lname"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+    </table>
+    <table width="100%">
+        <tr>
+            <td width="43%">หมายเลขประจำตัวประชาชนของนักเรียน(13 หลัก)</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["people_id"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
         </tr>
+    </table>
+    <table width="100%">
+        <tr>
+            <td width="9%">ระดับชั้น</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["grade_name"] . "/" . ltrim($row["student_group_no"], '0'); ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td width="5%">ช่าง</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["major_name"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td width="19%">รหัสประจำตัวนักเรียน</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["student_id"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+    </table>
+    <table width="100%">
+        <tr>
+            <td width="10%">ภาคเรียนที่</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td width="11%">ปีการศึกษา</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2564&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+    </table>
+    <table width="100%">
         <tr>
             <td colspan="2">
                 <div>ขอรับสิทธิ์ค่าเครื่องแบบนักเรียนและค่าอุปกรณ์การเรียนตามโครงการสนับสนุนค่าใช้จ่ายในการจัดการศึกษา</div>ตั้งแต่ระดับอนุบาลจนจบการศึกษาขั้นพื้นฐาน ดังนี้
@@ -818,29 +944,34 @@ $row = mysqli_fetch_array($res);
     <br>
     <table width="100%" class="text-22">
         <tr>
-            <td colspan="2">
-                <div>รวมทั้งสิ้น (ตัวอักษร)...............................................-สองร้อยสามสิบบาทถ้วน-................................................</div>
+            <td colspan="4">
+                <div>รวมทั้งสิ้น (ตัวอักษร)...............................................-สองร้อยสามสิบบาทถ้วน-................................................................</div>
             </td>
         </tr>
         <tr>
-            <td class="text-left" width="70%">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ข้าพเจ้า ..........<?php echo $row["prefix_name"] . $row["stu_fname"] . "  " . $row["stu_lname"]; ?>..........
+            <td class="text-left" width="14%">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ข้าพเจ้า
             </td>
-            <td class="text-right">
-                ตำแหน่ง...........นักเรียน............
+            <td class="dott">
+                <?php echo $row["prefix_name"] . $row["stu_fname"] . "  " . $row["stu_lname"]; ?>
+            </td>
+            </td>
+            <td width="10%">ตำแหน่ง</td>
+            <td class="dott">
+                นักเรียน
             </td>
         </tr>
         <tr>
-            <td colspan="2">
+            <td colspan="4">
                 <div>สังกัดวิทยาลัยเทคนิคชลบุรี กองวิทยาลัยเทคนิคชลบุรี กรมอาชีวศึกษา กระทรวงศึกษาธิการ ขอรับรองว่า</div>
                 <div>รายจ่ายข้างต้น ไม่อาจเรียกใบเสร็จรับเงินจากผู้รับเงินได้ และข้าพเจ้าได้จ่ายเงินไปในงานของราชการโดยแท้</div>
             </td>
         </tr>
         <tr>
-            <td class="text-right" colspan="2"><br>ลงชื่อ..............................................นักเรียน</td>
+            <td class="text-right" colspan="4"><br>ลงชื่อ.................................................นักเรียน</td>
         </tr>
         <tr>
-            <td class="text-right" colspan="2"><br>ลงชื่อ..............................................ผู้ปกคอง</td>
+            <td class="text-right" colspan="4"><br>ลงชื่อ..............................................ผู้ปกครอง</td>
         </tr>
     </table>
     <pagebreak></pagebreak>

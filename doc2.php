@@ -187,16 +187,16 @@ $level = explode(".", $row["grade_name"]);
         </table>
         <table width="100%" class="border-table text-center">
             <tr>
-                <td>ที่</td>
-                <td>รหัสประจำตัว<div>นักเรียน</div>
+                <td width="4%">ที่</td>
+                <td width="15%">รหัสประจำตัว<div>นักเรียน</div>
                 </td>
-                <td width="28%">ชื่อ - สกุล นักเรียน</td>
-                <td>
+                <td width="30%">ชื่อ - สกุล นักเรียน</td>
+                <td width="16%">
                     <div>หมายเลขบัตร</div>
                     <div>ประจำตัวประชาชน</div>
                     <div>นักเรียน</div>
                 </td>
-                <td>จำนวนเงิน</td>
+                <td width="10%">จำนวนเงิน</td>
                 <td width="16%">วันที่รับเงิน</td>
                 <td width="16%">ลายมือชื่อ<div>ผู้รับเงิน</div>
                 </td>

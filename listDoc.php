@@ -41,7 +41,7 @@ if (empty($_SESSION['people_id'])) {
                                 </div> -->
                             </div>
 
-                            <table class="table" id="enrollTable" width="1200">
+                            <table class="table" id="enrollTable" width="100%">
                                 <thead>
                                     <tr>
                                         <th>ที่</th>

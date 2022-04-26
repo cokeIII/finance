@@ -9,7 +9,7 @@ if (empty($_SESSION['people_id'])) {
 
 </style>
 
-<body id="page-top">
+<body id="page-top" class="d-flex flex-column min-vh-100">
     <!-- Navigation-->
     <?php require_once "menu.php"; ?>
     <div class="masthead">

@@ -26,7 +26,7 @@ if (empty($_SESSION['people_id'])) {
                                         $resRoom  = mysqli_query($conn, $sqlRoom);
                                         while ($rowRoom = mysqli_fetch_array($resRoom)) {
                                         ?>
-                                            <option value="<?php echo $rowRoom["student_group_id"]; ?>"><?php echo $rowRoom["student_group_short_name"]; ?></option>
+                                            <option value="<?php echo $rowRoom["student_group_id"]; ?>"><?php echo "(" . $rowRoom["student_group_id"] . ") " . $rowRoom["student_group_short_name"]; ?></option>
                                         <?php
                                         }
                                         ?>

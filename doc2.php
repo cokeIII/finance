@@ -166,7 +166,7 @@ $level = explode(".", $row["grade_name"]);
                     </table>
                 </td>
                 <td class="text-center">
-                    ภาคเรียนที่ <?php echo $term; ?> ปีการศึกษา 2564
+                    ภาคเรียนที่ <?php echo $term; ?> ปีการศึกษา 2565
                 </td>
             </tr>
             <tr>
@@ -245,7 +245,7 @@ $level = explode(".", $row["grade_name"]);
                 <td width="50%" class="text-center">
                     <br>
                     <div>ลงชื่อ................................................................</div>
-                    <div>(นายอภิชาติ อนุกูลเวช)</div>
+                    <div>(นายอำนวย เหิมขุนทด)</div>
                     <div>(รองผู้อำนวยการ ฝ่ายบริหารทรัพยากร)</div>
                 </td>
                 <td width="50%" class="text-center">

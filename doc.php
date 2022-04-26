@@ -280,7 +280,7 @@ $row = mysqli_fetch_array($res);
             <td width="10%">ภาคเรียนที่</td>
             <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
             <td width="11%">ปีการศึกษา</td>
-            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2564&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2565&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
         </tr>
     </table>
     <!-- pull data -->
@@ -344,7 +344,7 @@ $row = mysqli_fetch_array($res);
     <pagebreak></pagebreak>
 
     <h2 class="center">วิทยาลัยเทคนิคชลบุรี</h2>
-    <div class="center text-size">หลักฐานการรับค่าเครื่องแบบนักเรียน ระดับชั้น <?php echo $row["grade_name"]; ?> ปีการศึกษา 2564</div>
+    <div class="center text-size">หลักฐานการรับค่าเครื่องแบบนักเรียน ระดับชั้น <?php echo $row["grade_name"]; ?> ปีการศึกษา 2565</div>
     <div class="text-size">1.สำเนาบัตรประชาชนของนักเรียน/นักศึกษา หมายเลขโทรศัพท์ <?php echo $row["phone"]; ?></div>
     <div class="text-size txt-right">ชั้น/ช่าง <?php echo $row["student_group_short_name"]; ?> รหัส <?php echo $row["student_id"]; ?></div>
     <div class="center"><img src="../refund/uploads/<?php echo $row["id_card_pic_std"]; ?>" alt="" height="150" width="290"></div>
@@ -443,7 +443,7 @@ $row = mysqli_fetch_array($res);
             <td width="10%">ภาคเรียนที่</td>
             <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
             <td width="11%">ปีการศึกษา</td>
-            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2564&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2565&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
         </tr>
     </table>
     <table width="100%">
@@ -524,7 +524,7 @@ $row = mysqli_fetch_array($res);
         </tr>
         <tr>
             <td></td>
-            <td>ข้าพเจ้าได้ซื้ออุปกรณ์การเรียนประจำภาคเรียนที่ 1/2564 ดังนี้</td>
+            <td>ข้าพเจ้าได้ซื้ออุปกรณ์การเรียนประจำภาคเรียนที่ 1/2565 ดังนี้</td>
             <td></td>
             <td></td>
         </tr>
@@ -660,7 +660,7 @@ $row = mysqli_fetch_array($res);
     </table>
     <pagebreak></pagebreak>
     <h2 class="center">วิทยาลัยเทคนิคชลบุรี</h2>
-    <div class="center text-size">หลักฐานการรับค่าอุปกรณ์การเรียนของนักเรียนระดับชั้น <?php echo $row["grade_name"]; ?> ภาคเรียนที่ 1 ปีการศึกษา 2564</div>
+    <div class="center text-size">หลักฐานการรับค่าอุปกรณ์การเรียนของนักเรียนระดับชั้น <?php echo $row["grade_name"]; ?> ภาคเรียนที่ 1 ปีการศึกษา 2565</div>
     <div class="text-size">1.สำเนาบัตรประชาชนของนักเรียน/นักศึกษา หมายเลขโทรศัพท์ <?php echo $row["phone"]; ?></div>
     <div class="text-size txt-right">ชั้น/ช่าง <?php echo $row["student_group_short_name"]; ?> รหัส <?php echo $row["student_id"]; ?></div>
     <div class="center"><img src="../refund/uploads/<?php echo $row["id_card_pic_std"]; ?>" alt="" height="150" width="290"></div>
@@ -759,7 +759,7 @@ $row = mysqli_fetch_array($res);
             <td width="10%">ภาคเรียนที่</td>
             <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
             <td width="11%">ปีการศึกษา</td>
-            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2564&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2565&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
         </tr>
     </table>
     <table width="100%">
@@ -840,7 +840,7 @@ $row = mysqli_fetch_array($res);
         </tr>
         <tr>
             <td></td>
-            <td>ข้าพเจ้าได้ซื้ออุปกรณ์การเรียนประจำภาคเรียนที่ 2/2564 ดังนี้</td>
+            <td>ข้าพเจ้าได้ซื้ออุปกรณ์การเรียนประจำภาคเรียนที่ 2/2565 ดังนี้</td>
             <td></td>
             <td></td>
         </tr>
@@ -976,7 +976,7 @@ $row = mysqli_fetch_array($res);
     </table>
     <pagebreak></pagebreak>
     <h2 class="center">วิทยาลัยเทคนิคชลบุรี</h2>
-    <div class="center text-size">หลักฐานการรับค่าอุปกรณ์การเรียนของนักเรียนระดับชั้น <?php echo $row["grade_name"]; ?> ภาคเรียนที่ 2 ปีการศึกษา 2564</div>
+    <div class="center text-size">หลักฐานการรับค่าอุปกรณ์การเรียนของนักเรียนระดับชั้น <?php echo $row["grade_name"]; ?> ภาคเรียนที่ 2 ปีการศึกษา 2565</div>
     <div class="text-size">1.สำเนาบัตรประชาชนของนักเรียน/นักศึกษา หมายเลขโทรศัพท์ <?php echo $row["phone"]; ?></div>
     <div class="text-size txt-right">ชั้น/ช่าง <?php echo $row["student_group_short_name"]; ?> รหัส <?php echo $row["student_id"]; ?></div>
     <div class="center"><img src="../refund/uploads/<?php echo $row["id_card_pic_std"]; ?>" alt="" height="150" width="290"></div>

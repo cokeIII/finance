@@ -42,11 +42,11 @@ if (empty($_SESSION['people_id'])) {
                                 <select class="form-control" id="room">
                                     <option value="">-- เลือกห้องเรียน --</option>
                                     <?php
-                                    $sqlRoom = "select * from std_group2 where SUBSTR(group_id, 3, 1) = 2 order by group_name";
+                                    $sqlRoom = "select * from student_group where SUBSTR(student_group_id, 3, 1) = 2 group by student_group_short_name";
                                     $resRoom  = mysqli_query($conn, $sqlRoom);
                                     while ($rowRoom = mysqli_fetch_array($resRoom)) {
                                     ?>
-                                        <option value="<?php echo $rowRoom["group_id"]; ?>"><?php echo $rowRoom["group_name"]; ?></option>
+                                        <option value="<?php echo $rowRoom["student_group_id"]; ?>"><?php echo "(" . $rowRoom["student_group_id"] . ") " . $rowRoom["student_group_short_name"]; ?></option>
                                     <?php
                                     }
                                     ?>

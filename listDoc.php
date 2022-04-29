@@ -22,7 +22,7 @@ if (empty($_SESSION['people_id'])) {
                                     <select class="form-control" id="room">
                                         <option value="">-- เลือกห้องเรียน --</option>
                                         <?php
-                                        $sqlRoom = "select * from student_group where SUBSTR(student_group_id, 3, 1) = 2 group by student_group_short_name";
+                                        $sqlRoom = "select * from student_group where SUBSTR(student_group_id, 3, 1) = 2";
                                         $resRoom  = mysqli_query($conn, $sqlRoom);
                                         while ($rowRoom = mysqli_fetch_array($resRoom)) {
                                         ?>

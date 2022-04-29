@@ -144,7 +144,7 @@ $level = explode(".", $row["grade_name"]);
             inner join prefix p on s.perfix_id = p.prefix_id
             left join student_group sg on s.group_id = sg.student_group_id
             where sg.student_group_id = '$group_id'
-            order by student_id limit $j,10 "; ?>
+            and s.status = 0 order by student_id limit $j,10 "; ?>
         <table width="100%">
             <tr>
                 <td colspan="2" class="text-center">เอกสารหมายเลข 2 </td>
@@ -166,7 +166,7 @@ $level = explode(".", $row["grade_name"]);
                     </table>
                 </td>
                 <td class="text-center">
-                    ภาคเรียนที่ <?php echo $term; ?> ปีการศึกษา 2564
+                    ภาคเรียนที่ <?php echo $term; ?> ปีการศึกษา 2565
                 </td>
             </tr>
             <tr>

@@ -297,7 +297,7 @@
             <div class="container">
                 <div class="row">
                     <div class="wrapper fadeInDown">
-                        <div id="formContent mt-5">
+                        <div id="formContent">
                             <!-- Tabs Titles -->
 
                             <!-- Icon -->

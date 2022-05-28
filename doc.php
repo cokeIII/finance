@@ -353,9 +353,9 @@ $row = mysqli_fetch_array($res);
     <pagebreak></pagebreak>
 
     <h2 class="center">วิทยาลัยเทคนิคชลบุรี</h2>
-    <div class="center text-size">หลักฐานการรับค่าเครื่องแบบนักเรียน ระดับชั้น <?php //echo $row["grade_name"]; ?> ปีการศึกษา 2565</div>
-    <div class="text-size">1.สำเนาบัตรประชาชนของนักเรียน/นักศึกษา หมายเลขโทรศัพท์ <?php //echo $row["phone"]; ?></div>
-    <div class="text-size txt-right">ชั้น/ช่าง <?php echo $row["student_group_short_name"]; ?> รหัส <?php //echo $row["student_id"]; ?></div>
+    <div class="center text-size">หลักฐานการรับค่าเครื่องแบบนักเรียน ระดับชั้น <?php echo $row["grade_name"]; ?> ปีการศึกษา 2565</div>
+    <div class="text-size">1.สำเนาบัตรประชาชนของนักเรียน/นักศึกษา หมายเลขโทรศัพท์ <?php echo $row["phone"]; ?></div>
+    <div class="text-size txt-right">ชั้น/ช่าง <?php echo $row["student_group_short_name"]; ?> รหัส <?php echo $row["student_id"]; ?></div>
     <div class="center"><img src="../refund/uploads/<?php echo $row["id_card_pic_std"]; ?>" alt="" height="150" width="290"></div>
     <div class="text-size center">สำเนาถูกต้อง</div>
     <br>

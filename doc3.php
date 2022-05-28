@@ -47,24 +47,24 @@ function DateThai($strDate)
 ob_start(); // Start get HTML code
 $id = $_GET["id"];
 $student_group_no = $_POST["student_group_no"];
-// $sql = "select * from enroll
-// left join student s on enroll.student_id = s.student_id
-// left join student_group sg on enroll.group_id = sg.student_group_id
-// left join tumbol t on t.tumbol_id = s.tumbol_id
-// left join amphure a on a.amphure_id = t.amphure_id
-// left join province p on p.province_id = a.province_id
-// where enroll.id = '$id'
-// and enroll.status = 'พิมพ์แล้ว'
-// ";
-$sql = "
-select * from student
-left join student_group sg on student.group_id = sg.student_group_id
-left join prefix pe on pe.prefix_id = student.perfix_id
-left join tumbol t on t.tumbol_id = student.tumbol_id
+$sql = "select * from enroll
+left join student s on enroll.student_id = s.student_id
+left join student_group sg on enroll.group_id = sg.student_group_id
+left join tumbol t on t.tumbol_id = s.tumbol_id
 left join amphure a on a.amphure_id = t.amphure_id
 left join province p on p.province_id = a.province_id
-where student.student_id = '$id'
+where enroll.id = '$id'
+and enroll.status = 'พิมพ์แล้ว'
 ";
+// $sql = "
+// select * from student
+// left join student_group sg on student.group_id = sg.student_group_id
+// left join prefix pe on pe.prefix_id = student.perfix_id
+// left join tumbol t on t.tumbol_id = student.tumbol_id
+// left join amphure a on a.amphure_id = t.amphure_id
+// left join province p on p.province_id = a.province_id
+// where student.student_id = '$id'
+// ";
 $res = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($res);
 ?>
@@ -311,7 +311,7 @@ $row = mysqli_fetch_array($res);
             <td width="50%" class="text-center">
                 <div>&nbsp;</div>
                 <div>ลงชื่อ..........................................ผู้รับเงิน</div>
-                <div>(..........................................<?php //echo $row["par_fname"] ." ". $row["par_lname"]; ?>)</div>
+                <div>(..........................................<?php echo $row["par_fname"] ." ". $row["par_lname"]; ?>)</div>
                 <div>ผู้ปกครอง/ผู้มอบอำนาจ</div>
             </td>
             <td width="50%" class="text-center">
@@ -366,7 +366,7 @@ $row = mysqli_fetch_array($res);
     <div class="text-size center">สำเนาถูกต้อง</div>
     <br>
     <div class="text-size width-sig">ลงชื่อ </div>
-    <div class="text-size center">(<?php //echo trim($row["recipient_prefix"]) . $row["recipient_fname"] . " " . $row["recipient_lname"]; ?>)</div>
+    <div class="text-size center">(<?php echo trim($row["recipient_prefix"]) . $row["recipient_fname"] . " " . $row["recipient_lname"]; ?>)</div>
     <pagebreak></pagebreak>
     <table width="100%">
         <tr>
@@ -721,23 +721,23 @@ $row = mysqli_fetch_array($res);
     <table width="100%">
         <tr>
             <td>อยู่บ้านเลขที่</td>
-            <td class="dott"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php //echo $row["home_id"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td class="dott"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["home_id"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
             <td>หมู่ที่ </td>
-            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php //echo $row["moo"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["moo"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
             <td>ถนน </td>
-            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php //echo $row["street"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["street"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
             <td>ตำบล </td>
-            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php //echo $row["tumbol_name"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["tumbol_name"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
         </tr>
     </table>
     <table width="100%">
         <tr>
             <td width="12%">อำเภอ/เขต</td>
-            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php //echo $row["amphure_name"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["amphure_name"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
             <td width="8%">จังหวัด</td>
-            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php //echo $row["province_name"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["province_name"]; ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
             <td width="12%">รหัสไปรษณีย์</td>
-            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php //echo $row["post"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["post"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
         </tr>
     </table>
     <table width="100%">
@@ -788,7 +788,7 @@ $row = mysqli_fetch_array($res);
             <td width="50%" class="text-center">
                 <div>&nbsp;</div>
                 <div>ลงชื่อ..........................................ผู้รับเงิน</div>
-                <div>(..........................................<?php //echo $row["par_fname"] ." ". $row["par_lname"]; ?>)</div>
+                <div>(..........................................<?php echo $row["par_fname"] ." ". $row["par_lname"]; ?>)</div>
                 <div>ผู้ปกครอง/ผู้มอบอำนาจ</div>
             </td>
             <td width="50%" class="text-center">

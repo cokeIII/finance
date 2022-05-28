@@ -87,7 +87,12 @@ if (empty($_SESSION['people_id'])) {
             loadTable($(this).val())
         })
         $(document).on('click', '.btnPrint', function() {
-            $.redirect("doc.php", {
+            let pages = "doc.php";
+            let strStd = $(this).attr("enrollId").substring(0, 2);
+            if(strStd <= 64) {
+                pages = "doc3.php";  
+            }
+            $.redirect(pages, {
                 id: $(this).attr("enrollId"),
             }, "GET", "_blank");
         })

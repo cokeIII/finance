@@ -53,7 +53,7 @@ left join student_group sg on enroll.group_id = sg.student_group_id
 left join tumbol t on t.tumbol_id = s.tumbol_id
 left join amphure a on a.amphure_id = t.amphure_id
 left join province p on p.province_id = a.province_id
-where enroll.id = '$id'
+where enroll.student_id = '$id'
 and enroll.status = 'พิมพ์แล้ว'
 ";
 // $sql = "
@@ -281,7 +281,7 @@ $row = mysqli_fetch_array($res);
             <td width="5%">ช่าง</td>
             <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["major_name"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
             <td width="19%">รหัสประจำตัวนักเรียน</td>
-            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["student_id"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $id; //$row["student_id"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
         </tr>
     </table>
     <table width="100%">

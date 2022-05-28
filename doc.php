@@ -362,7 +362,7 @@ $row = mysqli_fetch_array($res);
     <div class="text-size width-sig">ลงชื่อ</div>
     <div class="text-size center">(<?php echo $row["prefix_name"] . $row["stu_fname"] . " " . $row["stu_lname"]; ?>)</div>
     <div class="text-size">2.สำเนาบัตรประชาชน<?php echo $row["recipient"]; ?></div>
-    <!-- <div class="center"><img src="../refund/uploads/<?php //echo $row["id_card_pic"]; ?>" alt="" height="150" width="290"></div> -->
+    <div class="center"><img src="../refund/uploads/<?php echo $row["id_card_pic"]; ?>" alt="" height="150" width="290"></div>
     <div class="text-size center">สำเนาถูกต้อง</div>
     <br>
     <div class="text-size width-sig">ลงชื่อ </div>

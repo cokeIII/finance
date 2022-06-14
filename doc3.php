@@ -311,7 +311,7 @@ $row = mysqli_fetch_array($res);
             <td width="50%" class="text-center">
                 <div>&nbsp;</div>
                 <div>ลงชื่อ..........................................ผู้รับเงิน</div>
-                <div>(..........................................<?php echo $row["par_fname"] ." ". $row["par_lname"]; ?>)</div>
+                <div>(<?php echo $row["par_fname"] ." ". $row["par_lname"]; ?>)</div>
                 <div>ผู้ปกครอง/ผู้มอบอำนาจ</div>
             </td>
             <td width="50%" class="text-center">
@@ -472,7 +472,7 @@ $row = mysqli_fetch_array($res);
             <td width="50%" class="text-center">
                 <div>&nbsp;</div>
                 <div>ลงชื่อ..........................................ผู้รับเงิน</div>
-                <div>(..........................................<?php echo $row["par_fname"] ." ".$row["par_lname"];?>)</div>
+                <div>(<?php echo $row["par_fname"] ." ".$row["par_lname"];?>)</div>
                 <div>ผู้ปกครอง/ผู้มอบอำนาจ</div>
             </td>
             <td width="50%" class="text-center">

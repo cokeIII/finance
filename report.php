@@ -53,7 +53,7 @@ if (empty($_SESSION['people_id'])) {
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <button class="btn btn-primary printReport">พิมพ์</button>
+                                <button class="btn btn-primary NextStep">ถัดไป</button>
                             </div>
                         </div>
                     </div>
@@ -67,12 +67,12 @@ if (empty($_SESSION['people_id'])) {
 <script>
     $(document).ready(function() {
         $("#room").select2();
-        $(document).on('click', '.printReport', function() {
-            $.redirect("doc2.php", {
+        $(document).on('click', '.NextStep', function() {
+            $.redirect("checkName.php", {
                 group_id: $("#room").val(),
                 mode: $("input[name=mode]:checked").val(),
                 term: $("input[name=term]:checked").val(),
-            }, "GET", "_blank");
+            }, "GET");
         })
     })
 </script>

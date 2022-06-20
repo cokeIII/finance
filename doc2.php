@@ -46,11 +46,13 @@ function DateThai($strDate)
 }
 ob_start(); // Start get HTML code
 $group_id = $_GET["group_id"];
+$listNot = $_GET["listNot"];
+
 $sql = "select * from student s
 inner join prefix p on s.perfix_id = p.prefix_id
 left join student_group sg on s.group_id = sg.student_group_id
 where sg.student_group_id = '$group_id'
-and s.status = 0
+and s.status = 0 and student_id not in (" . $listNot . ")
 ";
 $res = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($res);
@@ -144,7 +146,7 @@ $level = explode(".", $row["grade_name"]);
             inner join prefix p on s.perfix_id = p.prefix_id
             left join student_group sg on s.group_id = sg.student_group_id
             where sg.student_group_id = '$group_id'
-            and s.status = 0 order by student_id limit $j,10 "; ?>
+            and s.status = 0 and student_id not in (" . $listNot . ") order by student_id limit $j,10 "; ?>
         <table width="100%">
             <tr>
                 <td colspan="2" class="text-center">เอกสารหมายเลข 2 </td>
@@ -233,12 +235,12 @@ $level = explode(".", $row["grade_name"]);
                 <td width="50%" class="text-center">
                     <div>ลงชื่อ...............................................................(ผู้จ่ายเงิน)</div>
                     <div>(นางสาวราตรี ศรีเมือง)</div>
-                    <div>(เจ้าหน้าที่งานการเงิน)</div>
+                    <div>เจ้าหน้าที่งานการเงิน</div>
                 </td>
                 <td width="50%" class="text-center">
                     <div>ลงชื่อ...............................................................(ผู้จ่ายเงิน)</div>
                     <div>(นางกรรณิการ์ บำรุงญาติ)</div>
-                    <div>(หัวหน้างานการเงิน)</div>
+                    <div>หัวหน้างานการเงิน</div>
                 </td>
             </tr>
             <tr>
@@ -246,7 +248,7 @@ $level = explode(".", $row["grade_name"]);
                     <br>
                     <div>ลงชื่อ................................................................</div>
                     <div>(นายอำนวย เหิมขุนทด)</div>
-                    <div>(รองผู้อำนวยการ ฝ่ายบริหารทรัพยากร)</div>
+                    <div>รองผู้อำนวยการ ฝ่ายบริหารทรัพยากร</div>
                 </td>
                 <td width="50%" class="text-center">
                     <br>

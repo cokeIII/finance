@@ -34,7 +34,7 @@ $term = $_GET["term"];
                         <table class="table" id="listName">
                             <thead>
                                 <tr>
-                                    <td>ลำดับที่</td>
+                                    <!-- <td>ลำดับที่</td> -->
                                     <td>รหัสนักเรียน</td>
                                     <td>ชื่อ - สกุล</td>
                                     <td>ทำเครื่องหมาย ✓ </td>
@@ -53,7 +53,7 @@ $term = $_GET["term"];
                                 while ($row = mysqli_fetch_array($res)) {
                                 ?>
                                     <tr>
-                                        <td><?php echo ++$i; ?></td>
+                                        <!-- <td><?php //echo ++$i; ?></td> -->
                                         <td><?php echo $row["student_id"]; ?></td>
                                         <td><?php echo $row["prefix_name"] . $row["stu_fname"] . " " . $row["stu_lname"]; ?></td>
                                         <td><input type="checkbox" name="listNot" class="listNot" value="<?php echo $row["student_id"]; ?>"></td>

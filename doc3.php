@@ -235,7 +235,7 @@ $row = mysqli_fetch_array($res);
         <tr>
             <td width="40%" class="text-right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ข้าพเจ้า (ผู้ปกครอง) (นาย/นาง/นางสาว)</td>
             <td class="dott">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["par_fname"] ." ". $row["par_lname"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["recipient_prefix"] . $row["recipient_fname"] . " " . $row["recipient_lname"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
         </tr>
     </table>
@@ -281,7 +281,8 @@ $row = mysqli_fetch_array($res);
             <td width="5%">ช่าง</td>
             <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["major_name"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
             <td width="19%">รหัสประจำตัวนักเรียน</td>
-            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $id; //$row["student_id"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td class="dott">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $id; //$row["student_id"]; 
+                                                            ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
         </tr>
     </table>
     <table width="100%">
@@ -311,7 +312,7 @@ $row = mysqli_fetch_array($res);
             <td width="50%" class="text-center">
                 <div>&nbsp;</div>
                 <div>ลงชื่อ..........................................ผู้รับเงิน</div>
-                <div>(<?php echo $row["par_fname"] ." ". $row["par_lname"]; ?>)</div>
+                <div>(<?php echo $row["recipient_prefix"] . $row["recipient_fname"] . " " . $row["recipient_lname"]; ?>)</div>
                 <div>ผู้ปกครอง/ผู้มอบอำนาจ</div>
             </td>
             <td width="50%" class="text-center">
@@ -398,7 +399,7 @@ $row = mysqli_fetch_array($res);
         <tr>
             <td width="40%" class="text-right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ข้าพเจ้า (ผู้ปกครอง) (นาย/นาง/นางสาว)</td>
             <td class="dott">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["par_fname"] ." ". $row["par_lname"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["par_fname"] . " " . $row["par_lname"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
         </tr>
     </table>
@@ -472,7 +473,7 @@ $row = mysqli_fetch_array($res);
             <td width="50%" class="text-center">
                 <div>&nbsp;</div>
                 <div>ลงชื่อ..........................................ผู้รับเงิน</div>
-                <div>(<?php echo $row["par_fname"] ." ".$row["par_lname"];?>)</div>
+                <div>(<?php echo $row["recipient_prefix"] . $row["recipient_fname"] . " " . $row["recipient_lname"]; ?>)</div>
                 <div>ผู้ปกครอง/ผู้มอบอำนาจ</div>
             </td>
             <td width="50%" class="text-center">
@@ -714,7 +715,7 @@ $row = mysqli_fetch_array($res);
         <tr>
             <td width="40%" class="text-right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ข้าพเจ้า (ผู้ปกครอง) (นาย/นาง/นางสาว)</td>
             <td class="dott">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["par_fname"] ." ". $row["par_lname"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $row["recipient_prefix"] . $row["recipient_fname"] . " " . $row["recipient_lname"]; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
         </tr>
     </table>
@@ -788,7 +789,7 @@ $row = mysqli_fetch_array($res);
             <td width="50%" class="text-center">
                 <div>&nbsp;</div>
                 <div>ลงชื่อ..........................................ผู้รับเงิน</div>
-                <div>(..........................................<?php echo $row["par_fname"] ." ". $row["par_lname"]; ?>)</div>
+                <div>(..........................................<?php echo $row["par_fname"] . " " . $row["par_lname"]; ?>)</div>
                 <div>ผู้ปกครอง/ผู้มอบอำนาจ</div>
             </td>
             <td width="50%" class="text-center">

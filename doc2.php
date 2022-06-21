@@ -47,13 +47,21 @@ function DateThai($strDate)
 ob_start(); // Start get HTML code
 $group_id = $_GET["group_id"];
 $listNot = $_GET["listNot"];
+if (!empty($listNot)) {
+    $sql = "select * from student s
+    inner join prefix p on s.perfix_id = p.prefix_id
+    left join student_group sg on s.group_id = sg.student_group_id
+    where sg.student_group_id = '$group_id'
+    and s.status = 0 and student_id not in (" . $listNot . ")";
+} else {
+    $sql = "select * from student s
+    inner join prefix p on s.perfix_id = p.prefix_id
+    left join student_group sg on s.group_id = sg.student_group_id
+    where sg.student_group_id = '$group_id'
+    and s.status = 0";
+}
 
-$sql = "select * from student s
-inner join prefix p on s.perfix_id = p.prefix_id
-left join student_group sg on s.group_id = sg.student_group_id
-where sg.student_group_id = '$group_id'
-and s.status = 0 and student_id not in (" . $listNot . ")
-";
+
 $res = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($res);
 $level = explode(".", $row["grade_name"]);
@@ -142,11 +150,20 @@ $level = explode(".", $row["grade_name"]);
     $numRow = mysqli_num_rows($resNum);
     $i = 1;
     for ($j = 0; $j < $numRow; $j += 10) {
-        $sql2 = "select * from student s
+        if (!empty($listNot)) {
+            $sql2 = "select * from student s
             inner join prefix p on s.perfix_id = p.prefix_id
             left join student_group sg on s.group_id = sg.student_group_id
             where sg.student_group_id = '$group_id'
-            and s.status = 0 and student_id not in (" . $listNot . ") order by student_id limit $j,10 "; ?>
+            and s.status = 0 and student_id not in (" . $listNot . ") order by student_id limit $j,10 ";
+        } else {
+            $sql2 = "select * from student s
+            inner join prefix p on s.perfix_id = p.prefix_id
+            left join student_group sg on s.group_id = sg.student_group_id
+            where sg.student_group_id = '$group_id'
+            and s.status = 0 order by student_id limit $j,10 ";
+        }
+    ?>
         <table width="100%">
             <tr>
                 <td colspan="2" class="text-center">เอกสารหมายเลข 2 </td>

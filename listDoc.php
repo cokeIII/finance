@@ -96,7 +96,7 @@ if (empty($_SESSION['people_id'])) {
                 },
                 success: function(result) {
                     console.log(result)
-                    if (result > 0) {
+                    if (result == "g") {
                         pages = "doc3.php";
                     }
                     $.redirect(pages, {

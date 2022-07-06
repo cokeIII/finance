@@ -139,7 +139,7 @@ if ($uploadOk == 0) {
     ";
     $res = mysqli_query($conn, $sql);
     if ($res) {
-        header("location: insertCard.php");
+        header("location: lookCard.php");
     } else {
         echo $sql;
     }

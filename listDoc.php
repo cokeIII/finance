@@ -87,12 +87,13 @@ if (empty($_SESSION['people_id'])) {
             loadTable($(this).val())
         })
         $(document).on('click', '.btnPrint', function() {
+            let std_id = $(this).attr("enrollId")
             let pages = "doc.php";
             $.ajax({
                 type: "POST",
                 url: "checkEnroll.php",
                 data: {
-                    student_id: $(this).attr("enrollId")
+                    student_id: std_id
                 },
                 success: function(result) {
                     console.log(result)
@@ -100,7 +101,7 @@ if (empty($_SESSION['people_id'])) {
                         pages = "doc3.php";
                     }
                     $.redirect(pages, {
-                        id: $(this).attr("enrollId"),
+                        id: std_id,
                     }, "GET", "_blank");
                 }
             });

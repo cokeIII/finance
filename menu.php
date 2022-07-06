@@ -10,8 +10,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
                 <?php if (!empty($_SESSION["user_status"])) { ?>
-                    <li class="nav-item"><a class="nav-link me-lg-3" href="listDoc.php"><i class="fas fa-list-alt"></i> พิมพ์ใบสำคัญรับเงิน</a></li>
-                    <li class="nav-item"><a class="nav-link me-lg-3" href="report.php"><i class="fas fa-list"></i> พิมพ์ใบสรุป</a></li>
+                    <?php if ($_SESSION["user_status"] == "finance") { ?>
+                        <li class="nav-item"><a class="nav-link me-lg-3" href="listDoc.php"><i class="fas fa-list-alt"></i> พิมพ์ใบสำคัญรับเงิน</a></li>
+                        <li class="nav-item"><a class="nav-link me-lg-3" href="report.php"><i class="fas fa-list"></i> พิมพ์ใบสรุป</a></li>
+                    <?php } else if ($_SESSION["user_status"] == "student") { ?>
+                        <li class="nav-item"><a class="nav-link me-lg-3" href="insertCard.php"><i class="fas fa-address-card"></i> เพิ่มข้อมูล</a></li>
+                        <li class="nav-item"><a class="nav-link me-lg-3" href="lookCard.php"><i class="fas fa-list-alt"></i> รายการที่เพิ่ม</a></li>
+                    <?php } ?>
                     <li class="nav-item"><a href="logout.php"><button class="btn btn-primary rounded-pill">
                                 <i class="fas fa-sign-out-alt"></i>
                                 <span class="">ออกจากระบบ</span>

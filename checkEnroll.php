@@ -8,5 +8,5 @@ $numRow = mysqli_num_rows($res);
 if ($numRow > 0) {
     echo "g";
 } else {
-    echo "ng";
+    echo $sql;
 }

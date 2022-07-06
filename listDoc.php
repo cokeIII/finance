@@ -92,7 +92,7 @@ if (empty($_SESSION['people_id'])) {
                 type: "POST",
                 url: "checkEnroll.php",
                 data: {
-                    check:true
+                    student_id: $(this).attr("enrollId")
                 },
                 success: function(result) {
                     console.log(result)

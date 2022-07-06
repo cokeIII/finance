@@ -92,8 +92,7 @@ if (empty($_SESSION['people_id'])) {
                 type: "POST",
                 url: "checkEnroll.php",
                 data: {
-                    student_id: std_id,
-                    update: val,
+                    check:true
                 },
                 success: function(result) {
                     console.log(result)

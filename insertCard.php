@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php require_once "setHead.php"; ?>
+<?php
+if (empty($_SESSION['student_id'])) {
+    header("location: index.php");
+} ?>
 <style>
     .kbw-signature {
         width: 400px;

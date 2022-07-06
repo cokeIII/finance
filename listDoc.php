@@ -88,13 +88,25 @@ if (empty($_SESSION['people_id'])) {
         })
         $(document).on('click', '.btnPrint', function() {
             let pages = "doc.php";
-            let strStd = $(this).attr("enrollId").substring(0, 2);
-            if(strStd <= 64) {
-                pages = "doc3.php";  
-            }
-            $.redirect(pages, {
-                id: $(this).attr("enrollId"),
-            }, "GET", "_blank");
+            $.ajax({
+                type: "POST",
+                url: "checkEnroll.php",
+                data: {
+                    student_id: std_id,
+                    update: val,
+                },
+                success: function(result) {
+                    console.log(result)
+                    if (result > 0) {
+                        pages = "doc3.php";
+                    }
+                    $.redirect(pages, {
+                        id: $(this).attr("enrollId"),
+                    }, "GET", "_blank");
+                }
+            });
+            // let strStd = $(this).attr("enrollId").substring(0, 2);
+
         })
         $(document).on('change', '.status', function() {
             let std_id = $(this).attr("std_id")

@@ -169,7 +169,7 @@ if (empty($_SESSION['student_id'])) {
                                 <label for="id_card_pic_std" class="image-previewer" data-cropzee="id_card_pic_std"></label>
                                 <button id="btn_id_card_pic_std" type="button" class="btn btn-secondary" onclick="set_id_card_pic_std(cropzeeGetImage('id_card_pic_std'))">ยืนยันรูปภาพ</button>
                                 <div class="alert_pic" id="btn_id_card_pic_std_alert">กรุณากดปุ่มยืนยันรูปภาพ</div>
-                                <label class="mt-2">วันหมดอายุที่ระบุในบัตรประชาชนนักเรียน/นักศึกษา</label>
+                                <div class="mt-2">วันหมดอายุที่ระบุในบัตรประชาชนนักเรียน/นักศึกษา</div>
                                 <input type="date" name="exp_date_id_card_pic_std" id="exp_date_id_card_pic_std" class="form-control col-md-5" required>
                                 <hr>
                                 <div class="form-group p-1">
@@ -179,7 +179,7 @@ if (empty($_SESSION['student_id'])) {
                                 <label for="id_card_pic" class="image-previewer" data-cropzee="id_card_pic"></label>
                                 <button id="btn_id_card_pic" type="button" class="btn btn-secondary" onclick="set_id_card_pic(cropzeeGetImage('id_card_pic'))">ยืนยันรูปภาพ</button>
                                 <div class="alert_pic" id="btn_id_card_pic_alert">กรุณากดปุ่มยืนยันรูปภาพ</div>
-                                <label class="mt-2">วันหมดอายุที่ระบุในบัตรประชาชนผู้ปกครอง</label>
+                                <div class="mt-2">วันหมดอายุที่ระบุในบัตรประชาชนผู้ปกครอง</div>
                                 <input type="date" name="exp_date_id_card_pic" id="exp_date_id_card_pic" class="form-control col-md-5" required>
 
                                 <!-- <hr> -->

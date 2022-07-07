@@ -244,7 +244,7 @@ if (empty($_SESSION['student_id'])) {
 
                         <div class="row mt-3">
                             <div class="d-flex justify-content-center text-center">
-                                <button id="btnEnroll" class="btn btn-primary"><i class="fas fa-clipboard-list"></i> ลงทะเบียนรับเงิน</button>
+                                <button id="btnEnroll" class="btn btn-primary"><i class="fas fa-clipboard-list"></i> ลงทะเบียน</button>
                             </div>
                         </div>
                     </form>

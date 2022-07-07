@@ -19,6 +19,8 @@ $recipient_fname = $_POST["recipient_fname"];
 $recipient_lname = $_POST["recipient_lname"];
 $student_group_short_name = $_POST["student_group_short_name"];
 $phone = $_POST["phone"];
+$exp_card_std = $_POST["exp_date_id_card_pic_std"];
+$exp_card = $_POST["exp_date_id_card_pic"];
 
 date_default_timezone_set("Asia/Bangkok");
 $nameDate = date("YmdHis");
@@ -107,7 +109,9 @@ if ($uploadOk == 0) {
         recipient_bank,
         recipient_bank_number,
         pay_id,
-        phone
+        phone,
+        exp_card_std,
+        exp_card
 
     ) values(
         '$people_id',
@@ -134,7 +138,9 @@ if ($uploadOk == 0) {
         '',
         '',
         '',
-        '$phone'
+        '$phone',
+        '$exp_card_std',
+        '$exp_card'
     );
     ";
     $res = mysqli_query($conn, $sql);

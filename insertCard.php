@@ -121,7 +121,7 @@ if (empty($_SESSION['student_id'])) {
                         </div>
                         <hr>
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="form-group p-1">
                                     <label>หมายเลขโทรศัพท์ (ผู้ปกครอง)</label>
                                     <input class="form-control" id="phone" name="phone" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type="number" maxlength="10" value="<?php echo (empty($_SESSION["par_tell"]) ? "" : $_SESSION["par_tell"]) ?>">
@@ -169,6 +169,8 @@ if (empty($_SESSION['student_id'])) {
                                 <label for="id_card_pic_std" class="image-previewer" data-cropzee="id_card_pic_std"></label>
                                 <button id="btn_id_card_pic_std" type="button" class="btn btn-secondary" onclick="set_id_card_pic_std(cropzeeGetImage('id_card_pic_std'))">ยืนยันรูปภาพ</button>
                                 <div class="alert_pic" id="btn_id_card_pic_std_alert">กรุณากดปุ่มยืนยันรูปภาพ</div>
+                                <label class="mt-2">วันหมดอายุที่ระบุในบัตรประชาชนนักเรียน/นักศึกษา</label>
+                                <input type="date" name="exp_date_id_card_pic_std" id="exp_date_id_card_pic_std" class="form-control col-md-5" required>
                                 <hr>
                                 <div class="form-group p-1">
                                     <label><strong>รูปบัตรประชาชนผู้ปกครอง</strong><a href="#" data-toggle="modal" data-target="#exampleModalCard"> ตัวอย่าง</a></label>
@@ -177,6 +179,9 @@ if (empty($_SESSION['student_id'])) {
                                 <label for="id_card_pic" class="image-previewer" data-cropzee="id_card_pic"></label>
                                 <button id="btn_id_card_pic" type="button" class="btn btn-secondary" onclick="set_id_card_pic(cropzeeGetImage('id_card_pic'))">ยืนยันรูปภาพ</button>
                                 <div class="alert_pic" id="btn_id_card_pic_alert">กรุณากดปุ่มยืนยันรูปภาพ</div>
+                                <label class="mt-2">วันหมดอายุที่ระบุในบัตรประชาชนผู้ปกครอง</label>
+                                <input type="date" name="exp_date_id_card_pic" id="exp_date_id_card_pic" class="form-control col-md-5" required>
+
                                 <!-- <hr> -->
                                 <!-- <div class="form-group p-1">
                                     <label><strong>รูปหน้าสมุดบัญชี</strong><a href="#" data-toggle="modal" data-target="#exampleModalAcc"> ตัวอย่าง</a></label>

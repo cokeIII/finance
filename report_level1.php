@@ -37,8 +37,8 @@ header('Content-Type: text/html; charset=UTF-8');
                             <td>ชื่อครูที่ปรึกษา</td>
                             <td>ช่าง</td>
                             <td>จำนวนนักเรียนทั้งหมด</td>
-                            <td class="text-warning">กรอกข้อมูลแล้วแต่ไม่สมบูรณ์</td>
                             <td class="text-success">กรอกข้อมูลเรียบร้อย</td>
+                            <td class="text-warning">กรอกข้อมูลแล้วแต่ไม่สมบูรณ์</td>
                             <td class="text-danger">ยังไม่ได้กรอกข้อมูล</td>
                         </tr>
                     </thead>
@@ -52,8 +52,8 @@ header('Content-Type: text/html; charset=UTF-8');
                                     <td><?php echo $row["people_name"] . " " . $row["people_surname"]; ?></td>
                                     <td><?php echo $row["student_group_short_name"]; ?></td>
                                     <td><?php echo $all = countAll($row["student_group_id"]); ?></td>
-                                    <td class="text-warning"><?php echo $yn = countYes_nopass($row["student_group_id"]); ?></td>
                                     <td class="text-success"><?php echo $yp = countYes_pass($row["student_group_id"]); ?></td>
+                                    <td class="text-warning"><?php echo $yn = countYes_nopass($row["student_group_id"]); ?></td>
                                     <td class="text-danger"><?php echo $all-($yn+$yp); ?></td>
                                 </tr>
                         <?php

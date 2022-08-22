@@ -61,7 +61,7 @@ function countAll($g_id)
 {
     global $conn;
     $sql = "
-        select count(student_id) as std_all from enroll 
+        select count(student_id) as std_all from student 
         where group_id = '$g_id'
         ";
     $res = mysqli_query($conn, $sql);

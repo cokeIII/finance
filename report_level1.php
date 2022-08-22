@@ -27,6 +27,7 @@ header('Content-Type: text/html; charset=UTF-8');
             <tr>
                 <td>ลำดับ</td>
                 <td>ชื่อครูที่ปรึกษา</td>
+                <td>ช่าง</td>
                 <td>จำนวนนักเรียนทั้งหมด</td>
                 <td>ยังไม่ได้กรอกข้อมูล</td>
                 <td>กรอกข้อมูลแล้วแต่ไม่สมบูรณ์</td>
@@ -39,10 +40,11 @@ header('Content-Type: text/html; charset=UTF-8');
                 <tr>
                     <td><?php echo $i++; ?></td>
                     <td><?php echo $row["teacher_id1"]; ?></td>
+                    <td><?php echo $row["student_group_short_name"]; ?></td>
                     <td><?php echo countAll($row["student_group_id"]); ?></td>
                     <td><?php echo countNot($row["student_group_id"]); ?></td>
                     <td><?php echo countYes_nopass($row["student_group_id"]); ?></td>
-                    <td><?php echo countAll($row["student_group_id"]); ?></td>
+                    <td><?php echo countYes_pass($row["student_group_id"]); ?></td>
                 </tr>
             <?php
             } ?>

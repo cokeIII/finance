@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php header('Content-Type: text/html; charset=UTF-8'); ?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,11 +30,18 @@
             </tr>
         </thead>
         <tbody>
-            <?php while ($row = mysqli_fetch_array($res)) { ?>
+            <?php $i = 1;
+            while ($row = mysqli_fetch_array($res)) { ?>
                 <tr>
-                    <td><?php echo countAll($g_id);?></td>
+                    <td><?php echo $i++; ?></td>
+                    <td><?php echo $row["teacher_id1"]; ?></td>
+                    <td><?php echo countAll($row["student_group_id"]); ?></td>
+                    <td><?php echo countNot($row["student_group_id"]); ?></td>
+                    <td><?php echo countYes_nopass($row["student_group_id"]); ?></td>
+                    <td><?php echo countAll($row["student_group_id"]); ?></td>
                 </tr>
-            <?php } ?>
+            <?php
+            } ?>
         </tbody>
     </table>
 </body>
@@ -47,7 +55,41 @@ function countAll($g_id)
         select *,count(student_id) as std_all from enroll 
         where group_id = '$g_id'
         ";
-    $res = mysqli_query($conn,$sql);
+    $res = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_array($res);
+    return $row["std_all"];
+}
+function countNot($g_id)
+{
+    global $conn;
+    $sql = "
+        select *,count(student_id) as std_all from enroll 
+        where group_id = '$g_id' and status = '' 
+        ";
+    $res = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_array($res);
+    return $row["std_all"];
+}
+function countYes_nopass($g_id)
+{
+    global $conn;
+    $sql = "
+        select *,count(student_id) as std_all from enroll 
+        where group_id = '$g_id' and status = 'เอกสารไม่ถูกต้องสมบูรณ์' 
+        ";
+    $res = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_array($res);
+    return $row["std_all"];
+}
+
+function countYes_pass($g_id)
+{
+    global $conn;
+    $sql = "
+        select *,count(student_id) as std_all from enroll 
+        where group_id = '$g_id' and status = 'ส่งเอกสารแล้ว' 
+        ";
+    $res = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($res);
     return $row["std_all"];
 }

@@ -23,7 +23,7 @@ header('Content-Type: text/html; charset=UTF-8');
     $res = mysqli_query($conn, $sql);
     ?>
     <div class="container">
-        <div class="card">
+        <div class="card mt-5">
             <div class="card-body">
                 <h4>รายงานสรุปจำนวนนักเรียน ปวช.1 ในการกรอกข้อมูลบัตรประชาชน</h4>
                 <table class="table" id="r_level1">
@@ -57,7 +57,7 @@ header('Content-Type: text/html; charset=UTF-8');
                         } ?>
                     </tbody>
                     <tfoot>
-                        
+
                     </tfoot>
                 </table>
 

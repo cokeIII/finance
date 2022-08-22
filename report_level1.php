@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php 
+<?php
 require_once "setHead.php";
-header('Content-Type: text/html; charset=UTF-8'); 
+header('Content-Type: text/html; charset=UTF-8');
 
 ?>
 
@@ -37,17 +37,20 @@ header('Content-Type: text/html; charset=UTF-8');
         </thead>
         <tbody>
             <?php $i = 1;
-            while ($row = mysqli_fetch_array($res)) { ?>
-                <tr>
-                    <td><?php echo $i++; ?></td>
-                    <td><?php echo $row["people_name"]." ".$row["people_surname"]; ?></td>
-                    <td><?php echo $row["student_group_short_name"]; ?></td>
-                    <td><?php echo countAll($row["student_group_id"]); ?></td>
-                    <td><?php echo countNot($row["student_group_id"]); ?></td>
-                    <td><?php echo countYes_nopass($row["student_group_id"]); ?></td>
-                    <td><?php echo countYes_pass($row["student_group_id"]); ?></td>
-                </tr>
+            while ($row = mysqli_fetch_array($res)) {
+                if (countAll($row["student_group_id"]) > 0) {
+            ?>
+                    <tr>
+                        <td><?php echo $i++; ?></td>
+                        <td><?php echo $row["people_name"] . " " . $row["people_surname"]; ?></td>
+                        <td><?php echo $row["student_group_short_name"]; ?></td>
+                        <td><?php echo countAll($row["student_group_id"]); ?></td>
+                        <td><?php echo countNot($row["student_group_id"]); ?></td>
+                        <td><?php echo countYes_nopass($row["student_group_id"]); ?></td>
+                        <td><?php echo countYes_pass($row["student_group_id"]); ?></td>
+                    </tr>
             <?php
+                }
             } ?>
         </tbody>
     </table>

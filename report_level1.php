@@ -14,7 +14,6 @@ header('Content-Type: text/html; charset=UTF-8');
 </head>
 
 <body>
-    <h5>รายงานสรุปจำนวนนักเรียน ปวช.1 ในการกรอกข้อมูลบัตรประชาชน</h5>
     <?php
     require_once "connect.php";
     $sql = "select * from student_group g
@@ -26,6 +25,7 @@ header('Content-Type: text/html; charset=UTF-8');
     <div class="container">
         <div class="card">
             <div class="card-body">
+                <h4>รายงานสรุปจำนวนนักเรียน ปวช.1 ในการกรอกข้อมูลบัตรประชาชน</h4>
                 <table class="table">
                     <thead>
                         <tr>

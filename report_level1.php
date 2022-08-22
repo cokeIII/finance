@@ -17,8 +17,7 @@ header('Content-Type: text/html; charset=UTF-8');
     <h5>รายงานสรุปจำนวนนักเรียน ปวช.1 ในการกรอกข้อมูลบัตรประชาชน</h5>
     <?php
     require_once "connect.php";
-    $sql = "select * from student_group g 
-    inner join enroll e on e.group_id = g.student_group_id
+    $sql = "select * from student_group g
     inner join people p on p.people_id = g.teacher_id1
     where g.grade_name='ปวช.1' and g.student_group_year = '2565'";
 

@@ -92,7 +92,7 @@ function countNot($g_id)
 function countYes_nopass($g_id)
 {
     global $conn;
-    echo $sql = "
+    $sql = "
         select count(e.student_id) as std_all from enroll e
         inner join documents d on d.student_id = e.student_id  
         where group_id = '$g_id' and d.status = 'เอกสารไม่ถูกต้องสมบูรณ์' 

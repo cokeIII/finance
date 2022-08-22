@@ -23,37 +23,44 @@ header('Content-Type: text/html; charset=UTF-8');
 
     $res = mysqli_query($conn, $sql);
     ?>
-    <table class="table">
-        <thead>
-            <tr>
-                <td>ลำดับ</td>
-                <td>ชื่อครูที่ปรึกษา</td>
-                <td>ช่าง</td>
-                <td>จำนวนนักเรียนทั้งหมด</td>
-                <td>ยังไม่ได้กรอกข้อมูล</td>
-                <td>กรอกข้อมูลแล้วแต่ไม่สมบูรณ์</td>
-                <td>กรอกข้อมูลเรียบร้อย</td>
-            </tr>
-        </thead>
-        <tbody>
-            <?php $i = 1;
-            while ($row = mysqli_fetch_array($res)) {
-                if (countAll($row["student_group_id"]) > 0) {
-            ?>
-                    <tr>
-                        <td><?php echo $i++; ?></td>
-                        <td><?php echo $row["people_name"] . " " . $row["people_surname"]; ?></td>
-                        <td><?php echo $row["student_group_short_name"]; ?></td>
-                        <td><?php echo countAll($row["student_group_id"]); ?></td>
-                        <td><?php echo countNot($row["student_group_id"]); ?></td>
-                        <td><?php echo countYes_nopass($row["student_group_id"]); ?></td>
-                        <td><?php echo countYes_pass($row["student_group_id"]); ?></td>
-                    </tr>
-            <?php
-                }
-            } ?>
-        </tbody>
-    </table>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td>ลำดับ</td>
+                            <td>ชื่อครูที่ปรึกษา</td>
+                            <td>ช่าง</td>
+                            <td>จำนวนนักเรียนทั้งหมด</td>
+                            <td>ยังไม่ได้กรอกข้อมูล</td>
+                            <td>กรอกข้อมูลแล้วแต่ไม่สมบูรณ์</td>
+                            <td>กรอกข้อมูลเรียบร้อย</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $i = 1;
+                        while ($row = mysqli_fetch_array($res)) {
+                            if (countAll($row["student_group_id"]) > 0) {
+                        ?>
+                                <tr>
+                                    <td><?php echo $i++; ?></td>
+                                    <td><?php echo $row["people_name"] . " " . $row["people_surname"]; ?></td>
+                                    <td><?php echo $row["student_group_short_name"]; ?></td>
+                                    <td><?php echo countAll($row["student_group_id"]); ?></td>
+                                    <td><?php echo countNot($row["student_group_id"]); ?></td>
+                                    <td><?php echo countYes_nopass($row["student_group_id"]); ?></td>
+                                    <td><?php echo countYes_pass($row["student_group_id"]); ?></td>
+                                </tr>
+                        <?php
+                            }
+                        } ?>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
@@ -86,7 +93,7 @@ function countYes_nopass($g_id)
 {
     global $conn;
     $sql = "
-        select count(student_id) as std_all from enroll
+        select count(student_id) as std_all from enroll e
         inner join documents d on d.student_id = e.student_id  
         where group_id = '$g_id' and d.status = 'เอกสารไม่ถูกต้องสมบูรณ์' 
         ";
@@ -99,7 +106,7 @@ function countYes_pass($g_id)
 {
     global $conn;
     $sql = "
-        select count(student_id) as std_all from enroll
+        select count(student_id) as std_all from enroll e
         inner join documents d on d.student_id = e.student_id  
         where group_id = '$g_id' and d.status = 'ส่งเอกสารแล้ว' 
         ";

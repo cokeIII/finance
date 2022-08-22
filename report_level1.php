@@ -56,6 +56,9 @@ header('Content-Type: text/html; charset=UTF-8');
                             }
                         } ?>
                     </tbody>
+                    <tfoot>
+                        
+                    </tfoot>
                 </table>
 
             </div>

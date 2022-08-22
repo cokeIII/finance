@@ -20,7 +20,7 @@ header('Content-Type: text/html; charset=UTF-8');
     $sql = "select * from student_group g 
     inner join enroll e on e.group_id = g.student_group_id
     inner join people p on p.people_id = g.teacher_id1
-    where g.grade_name='ปวช.1'";
+    where g.grade_name='ปวช.1' and g.student_group_year = '2565'";
 
     $res = mysqli_query($conn, $sql);
     ?>

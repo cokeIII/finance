@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php header('Content-Type: text/html; charset=UTF-8'); ?>
+<?php 
+require_once "setHead.php";
+header('Content-Type: text/html; charset=UTF-8'); 
+
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -18,7 +22,7 @@
     where g.grade_name='ปวช.1'";
     $res = mysqli_query($conn, $sql);
     ?>
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <td>ลำดับ</td>
@@ -48,6 +52,7 @@
 
 </html>
 <?php
+require_once "setFood.php";
 function countAll($g_id)
 {
     global $conn;

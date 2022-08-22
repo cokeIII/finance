@@ -30,7 +30,7 @@ header('Content-Type: text/html; charset=UTF-8');
         <div class="card mt-5">
             <div class="card-body">
                 <h4>รายงานสรุปจำนวนนักเรียน ปวช.1 ในการกรอกข้อมูลบัตรประชาชน</h4>
-                <table class="table bg-g" id="r_level1">
+                <table class="table " id="r_level1">
                     <thead>
                         <tr>
                             <td>ลำดับ</td>

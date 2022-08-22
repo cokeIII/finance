@@ -12,7 +12,11 @@ header('Content-Type: text/html; charset=UTF-8');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>รายงานสรุปจำนวนนักเรียน ปวช.1 ในการกรอกข้อมูลบัตรประชาชน</title>
 </head>
-
+<style>
+    .bg-g{
+        background-color: #a7a8a8;
+    }
+</style>
 <body>
     <?php
     require_once "connect.php";
@@ -26,7 +30,7 @@ header('Content-Type: text/html; charset=UTF-8');
         <div class="card mt-5">
             <div class="card-body">
                 <h4>รายงานสรุปจำนวนนักเรียน ปวช.1 ในการกรอกข้อมูลบัตรประชาชน</h4>
-                <table class="table" id="r_level1">
+                <table class="table bg-g" id="r_level1">
                     <thead>
                         <tr>
                             <td>ลำดับ</td>

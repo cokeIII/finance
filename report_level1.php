@@ -14,7 +14,7 @@
     require_once "connect.php";
     $sql = "select * from student_group g 
     inner join enroll e on e.group_id = g.student_group_id
-    where grade_name='ปวช.1'";
+    where g.grade_name='ปวช.1'";
     $res = mysqli_query($conn, $sql);
     ?>
     <table>

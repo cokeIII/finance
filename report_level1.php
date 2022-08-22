@@ -33,9 +33,9 @@ header('Content-Type: text/html; charset=UTF-8');
                             <td>ชื่อครูที่ปรึกษา</td>
                             <td>ช่าง</td>
                             <td>จำนวนนักเรียนทั้งหมด</td>
-                            <td>ยังไม่ได้กรอกข้อมูล</td>
                             <td>กรอกข้อมูลแล้วแต่ไม่สมบูรณ์</td>
                             <td>กรอกข้อมูลเรียบร้อย</td>
+                            <td>ยังไม่ได้กรอกข้อมูล</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,10 +47,10 @@ header('Content-Type: text/html; charset=UTF-8');
                                     <td><?php echo $i++; ?></td>
                                     <td><?php echo $row["people_name"] . " " . $row["people_surname"]; ?></td>
                                     <td><?php echo $row["student_group_short_name"]; ?></td>
-                                    <td><?php echo countAll($row["student_group_id"]); ?></td>
-                                    <td><?php echo countNot($row["student_group_id"]); ?></td>
-                                    <td><?php echo countYes_nopass($row["student_group_id"]); ?></td>
-                                    <td><?php echo countYes_pass($row["student_group_id"]); ?></td>
+                                    <td><?php echo $all = countAll($row["student_group_id"]); ?></td>
+                                    <td><?php echo $yn = countYes_nopass($row["student_group_id"]); ?></td>
+                                    <td><?php echo $yp = countYes_pass($row["student_group_id"]); ?></td>
+                                    <td><?php echo $all-($yn+$yp); ?></td>
                                 </tr>
                         <?php
                             }
@@ -92,10 +92,10 @@ function countNot($g_id)
 function countYes_nopass($g_id)
 {
     global $conn;
-    $sql = "
+    echo $sql = "
         select count(e.student_id) as std_all from enroll e
         inner join documents d on d.student_id = e.student_id  
-        where group_id = '$g_id' and d.status = 'เอกสารไม่ถูกต้องสมบูรณ์        ' 
+        where group_id = '$g_id' and d.status = 'เอกสารไม่ถูกต้องสมบูรณ์' 
         ";
     $res = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($res);

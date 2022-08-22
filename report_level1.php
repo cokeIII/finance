@@ -19,7 +19,9 @@ header('Content-Type: text/html; charset=UTF-8');
     require_once "connect.php";
     $sql = "select * from student_group g 
     inner join enroll e on e.group_id = g.student_group_id
+    inner join people p on p.people_id = g.teacher_id1
     where g.grade_name='ปวช.1'";
+
     $res = mysqli_query($conn, $sql);
     ?>
     <table class="table">
@@ -39,7 +41,7 @@ header('Content-Type: text/html; charset=UTF-8');
             while ($row = mysqli_fetch_array($res)) { ?>
                 <tr>
                     <td><?php echo $i++; ?></td>
-                    <td><?php echo $row["teacher_id1"]; ?></td>
+                    <td><?php echo $row["people_name"]." ".$row["people_surname"]; ?></td>
                     <td><?php echo $row["student_group_short_name"]; ?></td>
                     <td><?php echo countAll($row["student_group_id"]); ?></td>
                     <td><?php echo countNot($row["student_group_id"]); ?></td>
@@ -59,7 +61,7 @@ function countAll($g_id)
 {
     global $conn;
     $sql = "
-        select *,count(student_id) as std_all from enroll 
+        select count(student_id) as std_all from enroll 
         where group_id = '$g_id'
         ";
     $res = mysqli_query($conn, $sql);
@@ -70,8 +72,9 @@ function countNot($g_id)
 {
     global $conn;
     $sql = "
-        select *,count(student_id) as std_all from enroll 
-        where group_id = '$g_id' and status = '' 
+        select count(student_id) as std_all from enroll e
+        inner join documents d on d.student_id = e.student_id 
+        where group_id = '$g_id' and d.status = '' 
         ";
     $res = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($res);
@@ -81,8 +84,9 @@ function countYes_nopass($g_id)
 {
     global $conn;
     $sql = "
-        select *,count(student_id) as std_all from enroll 
-        where group_id = '$g_id' and status = 'เอกสารไม่ถูกต้องสมบูรณ์' 
+        select count(student_id) as std_all from enroll
+        inner join documents d on d.student_id = e.student_id  
+        where group_id = '$g_id' and d.status = 'เอกสารไม่ถูกต้องสมบูรณ์' 
         ";
     $res = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($res);
@@ -93,8 +97,9 @@ function countYes_pass($g_id)
 {
     global $conn;
     $sql = "
-        select *,count(student_id) as std_all from enroll 
-        where group_id = '$g_id' and status = 'ส่งเอกสารแล้ว' 
+        select count(student_id) as std_all from enroll
+        inner join documents d on d.student_id = e.student_id  
+        where group_id = '$g_id' and d.status = 'ส่งเอกสารแล้ว' 
         ";
     $res = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($res);

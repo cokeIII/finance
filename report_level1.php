@@ -26,7 +26,7 @@ header('Content-Type: text/html; charset=UTF-8');
         <div class="card">
             <div class="card-body">
                 <h4>รายงานสรุปจำนวนนักเรียน ปวช.1 ในการกรอกข้อมูลบัตรประชาชน</h4>
-                <table class="table">
+                <table class="table" id="r_level1">
                     <thead>
                         <tr>
                             <td>ลำดับ</td>
@@ -48,9 +48,9 @@ header('Content-Type: text/html; charset=UTF-8');
                                     <td><?php echo $row["people_name"] . " " . $row["people_surname"]; ?></td>
                                     <td><?php echo $row["student_group_short_name"]; ?></td>
                                     <td><?php echo $all = countAll($row["student_group_id"]); ?></td>
-                                    <td><?php echo $yn = countYes_nopass($row["student_group_id"]); ?></td>
-                                    <td><?php echo $yp = countYes_pass($row["student_group_id"]); ?></td>
-                                    <td><?php echo $all-($yn+$yp); ?></td>
+                                    <td class="text-warning"><?php echo $yn = countYes_nopass($row["student_group_id"]); ?></td>
+                                    <td class="text-success"><?php echo $yp = countYes_pass($row["student_group_id"]); ?></td>
+                                    <td class="text-danger"><?php echo $all-($yn+$yp); ?></td>
                                 </tr>
                         <?php
                             }
@@ -115,3 +115,8 @@ function countYes_pass($g_id)
     return $row["std_all"];
 }
 ?>
+<script>
+    $(document).ready(function(){
+        $("#r_level1").Datatable()
+    })
+</script>

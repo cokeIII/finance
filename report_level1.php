@@ -33,9 +33,9 @@ header('Content-Type: text/html; charset=UTF-8');
                             <td>ชื่อครูที่ปรึกษา</td>
                             <td>ช่าง</td>
                             <td>จำนวนนักเรียนทั้งหมด</td>
-                            <td>กรอกข้อมูลแล้วแต่ไม่สมบูรณ์</td>
-                            <td>กรอกข้อมูลเรียบร้อย</td>
-                            <td>ยังไม่ได้กรอกข้อมูล</td>
+                            <td class="text-warning">กรอกข้อมูลแล้วแต่ไม่สมบูรณ์</td>
+                            <td class="text-success">กรอกข้อมูลเรียบร้อย</td>
+                            <td class="text-danger">ยังไม่ได้กรอกข้อมูล</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -117,6 +117,6 @@ function countYes_pass($g_id)
 ?>
 <script>
     $(document).ready(function(){
-        $("#r_level1").Datatable()
+        $("#r_level1").DataTable()
     })
 </script>

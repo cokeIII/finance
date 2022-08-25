@@ -1,5 +1,6 @@
 <?php
 require_once "connect.php";
+header('Content-Type: text/html; charset=UTF-8');
 // error_reporting(E_ERROR | E_WARNING | E_PARSE);
 if (!empty($_POST)) {
     if ($_POST["act"] == "insertNote") {

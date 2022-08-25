@@ -154,7 +154,7 @@ if (empty($_SESSION['people_id'])) {
                 },
                 dataType: 'json',
                 success: function(data) {
-                    if (data.note != null) {
+                    if (data.note) {
                         if (JSON.parse(data.note).length > 0) {
                             $.each(JSON.parse(data.note), function(index, element) {
                                 console.log(element)

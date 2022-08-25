@@ -63,6 +63,7 @@ while ($row = mysqli_fetch_assoc($res)) {
     <option value="เอกสารไม่ถูกต้องสมบูรณ์"' . ($row["dStatus"] == "เอกสารไม่ถูกต้องสมบูรณ์" ? "selected" : "") . '>เอกสารไม่ถูกต้องสมบูรณ์</option>
     <option value="ยกเลิก"' . ($row["dStatus"] == "ยกเลิก" ? "selected" : "") . '>ยกเลิก</option>
 </select>';
+    $techlist["data"][$i]["note"] = '<button enrollId="' . $row["student_id"] . '" class="btn btn-warning btnNote"><i class="fas fa-sticky-note"></i> Note</button>';
     $techlist["data"][$i]["btn_print"] = '<button enrollId="' . $row["student_id"] . '" class="btn btn-info btnPrint"><i class="fas fa-print"></i> พิมพ์</button>';
     $i++;
 }

@@ -2,6 +2,7 @@
 <html lang="en">
 <?php require_once "setHead.php";
 require_once "connect.php";
+error_reporting(0);
 if (empty($_SESSION['people_id'])) {
     header("location: index.php");
 }

@@ -51,6 +51,7 @@ if (empty($_SESSION['people_id'])) {
                                         <th>สถานะ</th>
                                         <th>วันเวลา</th>
                                         <th></th>
+                                        <th>note</th>
                                         <th width="40"></th>
                                     </tr>
                                 </thead>
@@ -65,6 +66,7 @@ if (empty($_SESSION['people_id'])) {
                                     <th>สถานะ</th>
                                     <th>วันเวลา</th>
                                     <th></th>
+                                    <th>note</th>
                                     <th></th>
                                 </tfoot>
                             </table>
@@ -79,8 +81,99 @@ if (empty($_SESSION['people_id'])) {
 <?php require_once "setFoot.php"; ?>
 
 </html>
+<!-- Modal -->
+<div class="modal fade" id="noteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="noteModalLabel">หมายเหตุ</h5>
+                <button type="button" class="close closeModal" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <input type="checkbox" name="note[]" id="noteCardStd" value="รูปภาพบัตรประชาชนนักเรียน"> : รูปภาพบัตรประชาชนนักเรียน นักศึกษาไม่สมบูรณ์
+                </div>
+                <hr>
+                <div>
+                    <input type="checkbox" name="note[]" id="noteCardPar" value="รูปภาพบัตรประชาชนผู้ปกครองไม่สมบูรณ์"> : รูปภาพบัตรประชาชนผู้ปกครองไม่สมบูรณ์
+                </div>
+                <hr>
+                <div>
+                    อื่นๆ :<textarea class="form-control" name="note[]" id="noteOther" rows="3"></textarea>
+                </div>
+                <button type="button" class="btn btn-primary mt-3 btnAddNote">บันทึก</button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary closeModal" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     $(document).ready(function() {
+        $(document).on('click', '.closeModal', function() {
+            $('.modal').modal('hide');
+        })
+        $(document).on('click', '.btnAddNote', function() {
+            let noteData = []
+            $('input[name="note[]"]:checked').each(function() {
+                noteData.push(this.value)
+            });
+            noteData.push($("#noteOther").val())
+            $.ajax({
+                type: 'POST',
+                url: 'noteSQL.php',
+                data: {
+                    enrollId: $(this).attr("enrollId"),
+                    note: noteData,
+                    act: "insertNote",
+                },
+                dataType: 'json',
+                success: function(data) {
+                    if (data == "ok") {
+                        $('.modal').modal('hide');
+                    }
+                }
+            });
+        })
+
+        $(document).on('click', '.btnNote', function() {
+            $(".btnAddNote").attr("enrollId", $(this).attr("enrollId"))
+            $.ajax({
+                type: 'POST',
+                url: 'noteSQL.php',
+                data: {
+                    enrollId: $(this).attr("enrollId"),
+                    act: "getNote",
+                },
+                dataType: 'json',
+                success: function(data) {
+                    if (data.note) {
+                        if (JSON.parse(data.note).length > 0) {
+                            $.each(JSON.parse(data.note), function(index, element) {
+                                console.log(element)
+                                if (element == "รูปภาพบัตรประชาชนนักเรียน") {
+                                    $("#noteCardStd").attr('checked', true)
+                                }
+                                if (element == "รูปภาพบัตรประชาชนผู้ปกครองไม่สมบูรณ์") {
+                                    $("#noteCardPar").attr('checked', true)
+                                } else {
+                                    $("#noteOther").html(element)
+                                }
+                            });
+                        }
+                    } else {
+                        $("#noteCardStd").attr('checked', false)
+                        $("#noteCardPar").attr('checked', false)
+                        $("#noteOther").html("")
+                    }
+                }
+            });
+            $("#noteModal").modal('show')
+        })
         $("#room").select2();
         loadTable("")
         $("#room").change(function() {
@@ -171,8 +264,12 @@ if (empty($_SESSION['people_id'])) {
                         "data": "select_status"
                     },
                     {
+                        "data": "note"
+                    },
+                    {
                         "data": "btn_print"
                     },
+
                 ],
                 "language": {
                     'processing': '<img src="img/tenor.gif" width="80">',

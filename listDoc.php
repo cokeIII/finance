@@ -142,6 +142,9 @@ if (empty($_SESSION['people_id'])) {
 
         $(document).on('click', '.btnNote', function() {
             $(".btnAddNote").attr("enrollId", $(this).attr("enrollId"))
+            $("#noteCardStd").attr('checked', false)
+            $("#noteCardPar").attr('checked', false)
+            $("#noteOther").html("")
             $.ajax({
                 type: 'POST',
                 url: 'noteSQL.php',
@@ -151,7 +154,7 @@ if (empty($_SESSION['people_id'])) {
                 },
                 dataType: 'json',
                 success: function(data) {
-                    if (data.note) {
+                    if (data.note != null) {
                         if (JSON.parse(data.note).length > 0) {
                             $.each(JSON.parse(data.note), function(index, element) {
                                 console.log(element)
@@ -170,9 +173,10 @@ if (empty($_SESSION['people_id'])) {
                         $("#noteCardPar").attr('checked', false)
                         $("#noteOther").html("")
                     }
+                    $("#noteModal").modal('show')
                 }
             });
-            $("#noteModal").modal('show')
+
         })
         $("#room").select2();
         loadTable("")
